@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@plugin "daisyui" {
-  themes: space;
-}
+@plugin "daisyui";
 
 @plugin "daisyui/theme" {
   name: "space";
@@ -63,11 +61,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
-  font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  color: var(--foreground);
-  background: var(--background);
   font-family: "Centra", sans-serif !important;
 }
 

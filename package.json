@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@flodlc/nebula": "^1.0.56",
-    "@tailwindcss/vite": "^4.0.9",
     "animate.css": "^4.1.1",
     "motion": "^12.4.7",
     "react": "^19.0.0",
@@ -19,6 +18,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@tailwindcss/vite": "^4.0.9",
     "@types/node": "^22.13.8",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

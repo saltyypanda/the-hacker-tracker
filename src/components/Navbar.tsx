@@ -25,7 +25,6 @@ const NavBar = () => {
         <a href="/">
           <img src="/logo.svg" alt="Logo" width={80} height={80} />
         </a>
-
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-white text-lg">
           <li>

@@ -23,10 +23,9 @@ export default function Banner() {
               scelerisque sapien bibendum lectus himenaeos. Lacinia accumsan
               dolor auctor erat dictumst curabitur.
             </p>
-            <button className="btn">Default</button>
-            <button className="btn btn-primary">Primary</button>
-            <button className="btn btn-secondary">Secondary</button>
-            <button className="btn btn-accent">Accent</button>
+            <button className="btn btn-primary w-60 font-body">
+              Learn More
+            </button>
           </div>
         </div>
       </div>
