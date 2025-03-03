@@ -1,6 +1,9 @@
 import type { Config } from "tailwindcss";
-import type { DaisyUIConfig } from "daisyui";
 import daisyui from "daisyui";
+
+interface DaisyUIConfig {
+  themes?: Record<string, Record<string, string>>[];
+}
 
 export default {
   content: [
@@ -55,4 +58,4 @@ export default {
       },
     ],
   },
-} satisfies Config & { daisyui: DaisyUIConfig };
+} satisfies Config & { daisyui?: DaisyUIConfig };
