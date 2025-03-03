@@ -1,4 +1,36 @@
 @import "tailwindcss";
+@plugin "daisyui" {
+  themes: space;
+}
+
+@plugin "daisyui/theme" {
+  name: "space";
+  default: false;
+  prefersdark: false;
+  color-scheme: dark;
+
+  --color-base-content: #ffffff;
+  --color-primary: #EC186C;
+  --color-secondary: #8D2999;
+  --color-accent: #F0F3FF;
+  --color-info: #151959;
+  --color-neutral: #6D206E;
+  --color-base-100: #361447;
+  --color-success: #403BEF;
+}
+
+@plugin "daisyui/theme" {
+  name: "greenSpace";
+  default: false;
+  prefersdark: false;
+  color-scheme: dark;
+
+  --color-primary: #A1CE3F;
+  --color-secondary: #107E57;
+  --color-accent: #cbe58e;
+  --color-neutral: #014760;
+  --color-base-100: #013026;
+}
 
 @font-face {
   font-family: Centra;
@@ -18,38 +50,6 @@
   font-weight: 400;
 }
 
-:root {
-  /* DaisyUI Color Variables */
-  --background: hsl(var(--b1));
-  --foreground: hsl(var(--p));
-
-  --primary: hsl(var(--p));
-  --primary-focus: hsl(var(--pf));
-  --primary-content: hsl(var(--pc));
-
-  --secondary: hsl(var(--s));
-  --secondary-focus: hsl(var(--sf));
-  --secondary-content: hsl(var(--sc));
-
-  --accent: hsl(var(--a));
-  --accent-focus: hsl(var(--af));
-  --accent-content: hsl(var(--ac));
-
-  --neutral: hsl(var(--n));
-  --neutral-focus: hsl(var(--nf));
-  --neutral-content: hsl(var(--nc));
-
-  --base-100: hsl(var(--b1));
-  --base-200: hsl(var(--b2));
-  --base-300: hsl(var(--b3));
-  --base-content: hsl(var(--bc));
-
-  --info: hsl(var(--in));
-  --success: hsl(var(--su));
-  --warning: hsl(var(--wa));
-  --error: hsl(var(--er));
-}
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 75px
@@ -57,6 +57,7 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   place-items: center;
   min-width: 320px;

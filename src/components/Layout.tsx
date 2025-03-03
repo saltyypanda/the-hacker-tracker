@@ -22,9 +22,11 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <div
           className="fixed bottom-0 left-0 w-full h-screen bg-cover bg-center bg-no-repeat opacity-35"
           style={{ backgroundImage: `url(${starrySky})` }}
-        ></div>
+        />
         <NavBar />
-        {children}
+        <div className="flex flex-col w-full h-full items-center">
+          {children}
+        </div>
       </body>
     </html>
   );
