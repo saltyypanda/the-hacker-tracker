@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "animate.css";
 
 const textIntros = [
-  "Welcome! I'm",
+  "Welcome! My name is",
   "They call me...",
   "The name's Hacker...",
   "Hi, my name is",
@@ -11,7 +11,7 @@ const textIntros = [
   "Greetings, I'm",
   "Access granted. Welcome,",
   "To those who seek, I am",
-  "Hello, world! I'm",
+  "Hello, world! I am",
   "Logging in as:",
   "Tracing signal...Found:",
 ];
