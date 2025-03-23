@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Children, ReactNode } from "react";
 import { ReactNebula } from "@flodlc/nebula";
 import NavBar from "./Navbar";
 import starrySky from "../assets/starry-sky-bg.png";
@@ -24,8 +24,15 @@ const Layout = ({ children }: { children: ReactNode }) => {
           style={{ backgroundImage: `url(${starrySky})` }}
         />
         <NavBar />
-        <div className="flex flex-col w-full h-full items-center">
-          {children}
+        <div className="flex flex-col w-full items-center">
+          {Children.map(children, (child, index) => (
+            <div
+              key={index}
+              className="min-w-screen min-h-screen flex items-center justify-center"
+            >
+              {child}
+            </div>
+          ))}
         </div>
       </body>
     </html>
