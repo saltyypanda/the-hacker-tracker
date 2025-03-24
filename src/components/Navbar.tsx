@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import linkedinIcon from "../assets/icons/linkedin-icon.svg"
+import facebookIcon from "../assets/icons/facebook-icon.svg"
+import instagramIcon from "../assets/icons/instagram-icon.svg"
+import logo from "../assets/logo.svg"
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +27,7 @@ const NavBar = () => {
     >
       <div className="container mx-auto flex justify-between items-center px-6 md:px-12 lg:px-20">
         <a href="/">
-          <img src="/logo.svg" alt="Logo" width={80} height={80} />
+          <img src={logo} alt="Logo" width={80} height={80} />
         </a>
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-white text-lg">
@@ -42,17 +46,17 @@ const NavBar = () => {
         <div className="hidden md:flex items-center space-x-4">
           <a href="#">
             <circle className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
-            <img src="/icons/linkedin-icon.svg" alt="LinkedIn Icon" width={18} height={18} />
+            <img src={linkedinIcon} alt="LinkedIn Icon" width={18} height={18} />
             </circle>
           </a>
           <a href="#">
           <circle className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
-            <img src="/icons/facebook-icon.svg" alt="FaceBook Icon" width={18} height={18} />
+            <img src={facebookIcon} alt="FaceBook Icon" width={18} height={18} />
             </circle>
           </a>
           <a href="#">
           <circle className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
-            <img src="/icons/instagram-icon.svg" alt="Instagram Icon" width={18} height={18} />
+            <img src={instagramIcon} alt="Instagram Icon" width={18} height={18} />
             </circle>
           </a>
           <a href="#connect" className="bg-white text-black font-bold px-6 py-2 rounded-lg hover:bg-gray-300 transition-all">

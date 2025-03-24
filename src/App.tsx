@@ -1,5 +1,6 @@
 import "./App.css";
 import Layout from "./components/Layout";
+import { Skills } from "./sections/Skills";
 import Banner from "./sections/Banner";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <Layout>
         <Banner />
+        <Skills />
       </Layout>
     </>
   );
