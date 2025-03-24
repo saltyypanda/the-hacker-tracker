@@ -8,7 +8,7 @@ function App() {
     <>
       <Layout>
         <Banner />
-        {/* <Skills /> */}
+        <Skills />
       </Layout>
     </>
   );

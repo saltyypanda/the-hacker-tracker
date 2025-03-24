@@ -6,8 +6,7 @@ export function Skills() {
           Skills
         </header>
         <p className="text-xl text-center text-base-content opacity-60">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text.
+          Here's some cool usefull stuff I learned over the past few years.
         </p>
       </div>
     </div>
