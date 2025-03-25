@@ -26,7 +26,7 @@ export function NavBar() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#121212] shadow-lg py-2" : "bg-transparent py-4"
+        scrolled ? "bg-base-100 shadow-lg py-2" : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-6 md:px-12 lg:px-20">
@@ -78,7 +78,7 @@ export function NavBar() {
             </div>
           </a>
           <button
-            className="bg-white text-black font-bold px-6 py-2 rounded-lg hover:bg-gray-300 transition-all inline-block mt-4"
+            className="bg-white text-black font-bold px-6 py-2 rounded-lg hover:bg-gray-300 hover:cursor-pointer transition-all inline-block"
             onClick={() => {
               setModalOpen(true);
             }}
@@ -102,7 +102,7 @@ export function NavBar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#121212] text-white p-4 space-y-4 text-center">
+        <div className="md:hidden bg-base-100 text-white p-4 space-y-4 text-center">
           <a
             href="#home"
             className="block hover:text-gray-300"

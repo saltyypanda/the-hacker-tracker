@@ -18,7 +18,7 @@ export function Background() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full z-[-10] bg-[#121212]">
+    <div className="fixed top-0 left-0 w-full h-full z-[-10] bg-base-100">
       <div
         className="fixed top-0 left-0 w-full h-full z-[-9] transition-all duration-300"
         style={{ opacity: opacity }}

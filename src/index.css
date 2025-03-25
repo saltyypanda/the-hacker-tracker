@@ -12,8 +12,9 @@
   --color-secondary: #8D2999;
   --color-accent: #F0F3FF;
   --color-info: #151959;
-  --color-neutral: #6D206E;
-  --color-base-100: #361447;
+  --color-neutral: #361447;
+  --color-base-100: #121212;
+  --color-base-200: #282828;
   --color-success: #403BEF;
 }
 

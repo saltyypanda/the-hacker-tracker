@@ -4,7 +4,7 @@ import { Languages, FrontendSkills, BackendSkills } from "../constants";
 export function Skills() {
   return (
     <div
-      className="flex flex-col items-center w-[85%] min-h-[85vh] mt-[64px] p-10 bg-[#121212] text-black rounded-[4rem]"
+      className="flex flex-col items-center w-[85%] min-h-[85vh] mt-[64px] p-10 bg-base-100 text-black rounded-[4rem]"
       style={{ transform: "scale(0.9" }}
     >
       <div className="w-[75%] flex flex-col items-center">
