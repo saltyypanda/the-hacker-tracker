@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Banner() {
   return (
-    <div>
+    <div id="home">
       <div className="hero min-h-[92vh]">
         <div className="hero-content flex-col lg:flex-row-reverse gap-12 mx-auto items-center self-center w-11/12">
           <motion.img
@@ -26,9 +26,9 @@ export default function Banner() {
               Institute of Technology. I'm passionate about accessibility in
               software and using technology to improve people's everyday lives.
             </p>
-            <button className="btn btn-primary w-60 font-body">
+            <a href="#skills" className="btn btn-primary w-60 font-body">
               Learn More
-            </button>
+            </a>
           </div>
         </div>
       </div>

@@ -30,7 +30,7 @@ export function NavBar() {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-6 md:px-12 lg:px-20">
-        <a href="/">
+        <a href="#home">
           <img src={logo} alt="Logo" width={80} height={80} />
         </a>
         {/* Desktop Menu */}

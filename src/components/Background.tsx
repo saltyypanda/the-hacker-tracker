@@ -8,7 +8,7 @@ export function Background() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const maxScroll = window.innerHeight - 200;
+      const maxScroll = window.innerHeight / 2;
 
       setOpacity(scrollY > maxScroll ? 0 : 1);
     };
