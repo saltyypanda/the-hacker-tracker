@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import linkedinIcon from "../assets/icons/linkedin-icon.svg"
-import facebookIcon from "../assets/icons/facebook-icon.svg"
+import githubIcon from "../assets/icons/github-icon.svg"
 import instagramIcon from "../assets/icons/instagram-icon.svg"
 import logo from "../assets/logo.svg"
 
@@ -44,14 +44,14 @@ const NavBar = () => {
 
         {/* Social Icons & Button */}
         <div className="hidden md:flex items-center space-x-4">
-          <a href="#">
+          <a href="https://www.linkedin.com/in/tess-hacker-741045257/" target="_blank">
             <circle className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
             <img src={linkedinIcon} alt="LinkedIn Icon" width={18} height={18} />
             </circle>
           </a>
-          <a href="#">
+          <a href="https://github.com/saltyypanda" target="_blank">
           <circle className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
-            <img src={facebookIcon} alt="FaceBook Icon" width={18} height={18} />
+            <img src={githubIcon} alt="GitHub Icon" width={32} height={32} />
             </circle>
           </a>
           <a href="#">
