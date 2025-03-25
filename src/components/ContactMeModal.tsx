@@ -27,7 +27,7 @@ export function ContactMeModal({
       >
         <div
           className="flex flex-col items-center justify-between w-[85%] min-h-[85vh] mt-[64px] p-10 bg-base-100 text-black rounded-[4rem] shadow-2xl mx-[5%] py-12"
-          style={{ transform: "scale(0.9" }}
+          style={{ transform: "scale(0.9)" }}
         >
           <div id="modal-header" className="flex flex-col text-center gap-4">
             <header className="text-5xl font-bold text-base-content">

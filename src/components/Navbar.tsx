@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import linkedinIcon from "../assets/icons/linkedin-icon.svg";
 import githubIcon from "../assets/icons/github-icon.svg";
-import fileIcon from "../assets/icons/file-icon.svg";
+import devpostIcon from "../assets/icons/devpost-icon.svg";
 import logo from "../assets/logo.svg";
 import { ContactMeModal } from "./ContactMeModal";
 
@@ -50,6 +50,11 @@ export function NavBar() {
               Projects
             </a>
           </li>
+          <li>
+            <a href="#resume" className="hover:text-gray-300 transition-all">
+              Resume
+            </a>
+          </li>
         </ul>
 
         {/* Social Icons & Button */}
@@ -72,9 +77,9 @@ export function NavBar() {
               <img src={githubIcon} alt="GitHub Icon" width={32} height={32} />
             </div>
           </a>
-          <a href="#">
+          <a href="https://devpost.com/saltyypanda?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="_blank">
             <div className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
-              <img src={fileIcon} alt="Resume Icon" width={26} height={26} />
+              <img src={devpostIcon} alt="Devpost Icon" width={26} height={26} />
             </div>
           </a>
           <button
