@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import linkedinIcon from "../assets/icons/linkedin-icon.svg"
 import githubIcon from "../assets/icons/github-icon.svg"
-import instagramIcon from "../assets/icons/instagram-icon.svg"
+import fileIcon from "../assets/icons/file-icon.svg"
 import logo from "../assets/logo.svg"
 
 const NavBar = () => {
@@ -56,7 +56,7 @@ const NavBar = () => {
           </a>
           <a href="#">
           <circle className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
-            <img src={instagramIcon} alt="Instagram Icon" width={18} height={18} />
+            <img src={fileIcon} alt="Instagram Icon" width={26} height={26} />
             </circle>
           </a>
           <a href="#connect" className="bg-white text-black font-bold px-6 py-2 rounded-lg hover:bg-gray-300 transition-all">
