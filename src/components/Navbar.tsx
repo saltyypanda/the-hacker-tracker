@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import linkedinIcon from "../assets/icons/linkedin-icon.svg"
-import githubIcon from "../assets/icons/github-icon.svg"
-import fileIcon from "../assets/icons/file-icon.svg"
-import logo from "../assets/logo.svg"
+import linkedinIcon from "../assets/icons/linkedin-icon.svg";
+import githubIcon from "../assets/icons/github-icon.svg";
+import fileIcon from "../assets/icons/file-icon.svg";
+import logo from "../assets/logo.svg";
+import { ContactMeModal } from "./ContactMeModal";
 
-const NavBar = () => {
+export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +25,9 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-[#121212] shadow-lg py-2" : "bg-transparent py-4"}`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-[#121212] shadow-lg py-2" : "bg-transparent py-4"
+      }`}
     >
       <div className="container mx-auto flex justify-between items-center px-6 md:px-12 lg:px-20">
         <a href="/">
@@ -32,36 +36,59 @@ const NavBar = () => {
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-white text-lg">
           <li>
-            <a href="#home" className="hover:text-gray-300 transition-all">Home</a>
+            <a href="#home" className="hover:text-gray-300 transition-all">
+              Home
+            </a>
           </li>
           <li>
-            <a href="#skills" className="hover:text-gray-300 transition-all">Skills</a>
+            <a href="#skills" className="hover:text-gray-300 transition-all">
+              Skills
+            </a>
           </li>
           <li>
-            <a href="#projects" className="hover:text-gray-300 transition-all">Projects</a>
+            <a href="#projects" className="hover:text-gray-300 transition-all">
+              Projects
+            </a>
           </li>
         </ul>
 
         {/* Social Icons & Button */}
         <div className="hidden md:flex items-center space-x-4">
-          <a href="https://www.linkedin.com/in/tess-hacker-741045257/" target="_blank">
-            <circle className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
-            <img src={linkedinIcon} alt="LinkedIn Icon" width={18} height={18} />
-            </circle>
+          <a
+            href="https://www.linkedin.com/in/tess-hacker-741045257/"
+            target="_blank"
+          >
+            <div className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
+              <img
+                src={linkedinIcon}
+                alt="LinkedIn Icon"
+                width={18}
+                height={18}
+              />
+            </div>
           </a>
           <a href="https://github.com/saltyypanda" target="_blank">
-          <circle className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
-            <img src={githubIcon} alt="GitHub Icon" width={32} height={32} />
-            </circle>
+            <div className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
+              <img src={githubIcon} alt="GitHub Icon" width={32} height={32} />
+            </div>
           </a>
           <a href="#">
-          <circle className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
-            <img src={fileIcon} alt="Instagram Icon" width={26} height={26} />
-            </circle>
+            <div className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
+              <img src={fileIcon} alt="Resume Icon" width={26} height={26} />
+            </div>
           </a>
-          <a href="#connect" className="bg-white text-black font-bold px-6 py-2 rounded-lg hover:bg-gray-300 transition-all">
+          <button
+            className="bg-white text-black font-bold px-6 py-2 rounded-lg hover:bg-gray-300 transition-all inline-block mt-4"
+            onClick={() => {
+              setModalOpen(true);
+            }}
+          >
             Let’s Connect
-          </a>
+          </button>
+          <ContactMeModal
+            open={modalOpen}
+            closeModal={() => setModalOpen(false)}
+          />
         </div>
 
         {/* Mobile Menu Button */}
@@ -76,27 +103,61 @@ const NavBar = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-[#121212] text-white p-4 space-y-4 text-center">
-          <a href="#home" className="block hover:text-gray-300" onClick={() => setMenuOpen(false)}>Home</a>
-          <a href="#skills" className="block hover:text-gray-300" onClick={() => setMenuOpen(false)}>Skills</a>
-          <a href="#projects" className="block hover:text-gray-300" onClick={() => setMenuOpen(false)}>Projects</a>
+          <a
+            href="#home"
+            className="block hover:text-gray-300"
+            onClick={() => setMenuOpen(false)}
+          >
+            Home
+          </a>
+          <a
+            href="#skills"
+            className="block hover:text-gray-300"
+            onClick={() => setMenuOpen(false)}
+          >
+            Skills
+          </a>
+          <a
+            href="#projects"
+            className="block hover:text-gray-300"
+            onClick={() => setMenuOpen(false)}
+          >
+            Projects
+          </a>
           <div className="flex justify-center space-x-4 mt-4">
             <a href="#">
-              <img src="/icons/linkedin-icon.svg" alt="Icon1" width={24} height={24} />
+              <img
+                src="/icons/linkedin-icon.svg"
+                alt="Icon1"
+                width={24}
+                height={24}
+              />
             </a>
             <a href="#">
-              <img src="/icons/facebook-icon.svg" alt="Icon2" width={24} height={24} />
+              <img
+                src="/icons/facebook-icon.svg"
+                alt="Icon2"
+                width={24}
+                height={24}
+              />
             </a>
             <a href="#">
-              <img src="/icons/instagram-icon.svg" alt="Icon3" width={24} height={24} />
+              <img
+                src="/icons/instagram-icon.svg"
+                alt="Icon3"
+                width={24}
+                height={24}
+              />
             </a>
           </div>
-          <a href="#connect" className="bg-white text-black font-bold px-6 py-2 rounded-lg hover:bg-gray-300 transition-all inline-block mt-4">
+          <a
+            href="#connect"
+            className="bg-white text-black font-bold px-6 py-2 rounded-lg hover:bg-gray-300 transition-all inline-block mt-4"
+          >
             Let’s Connect
           </a>
         </div>
       )}
     </nav>
   );
-};
-
-export default NavBar;
+}
