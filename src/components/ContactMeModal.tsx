@@ -9,7 +9,7 @@ export function ContactMeModal({
     <>
       {/* background */}
       <div
-        className={`fixed inset-0 z-40 bg-base-100 transition-opacity duration-300 ${
+        className={`fixed inset-0 m-0 p-0 min-w-screen min-h-screen z-40 bg-base-100 transition-opacity duration-300 ${
           open
             ? "opacity-40 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -19,7 +19,7 @@ export function ContactMeModal({
 
       {/* jerryrigged modal tehe */}
       <div
-        className={`fixed inset-0 z-50 grid place-items-center transition-opacity duration-300 ${
+        className={`fixed inset-0 m-0 p-0 min-w-screen min-h-screen z-50 grid place-items-center transition-opacity duration-300 ${
           open
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"

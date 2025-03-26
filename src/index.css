@@ -8,14 +8,14 @@
   color-scheme: dark;
 
   --color-base-content: #ffffff;
-  --color-primary: #EC186C;
-  --color-secondary: #8D2999;
-  --color-accent: #F0F3FF;
+  --color-primary: #ec186c;
+  --color-secondary: #8d2999;
+  --color-accent: #f0f3ff;
   --color-info: #151959;
   --color-neutral: #361447;
   --color-base-100: #121212;
   --color-base-200: #282828;
-  --color-success: #403BEF;
+  --color-success: #403bef;
 }
 
 @plugin "daisyui/theme" {
@@ -24,8 +24,8 @@
   prefersdark: false;
   color-scheme: dark;
 
-  --color-primary: #A1CE3F;
-  --color-secondary: #107E57;
+  --color-primary: #a1ce3f;
+  --color-secondary: #107e57;
   --color-accent: #cbe58e;
   --color-neutral: #014760;
   --color-base-100: #013026;
@@ -51,7 +51,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 75px
+  scroll-padding-top: 75px;
+  overflow-y: scroll;
 }
 
 body {
@@ -67,8 +68,22 @@ body {
   font-family: "Centra", sans-serif !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
-  line-height: normal
+  line-height: normal;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }

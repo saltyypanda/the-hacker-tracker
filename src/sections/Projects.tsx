@@ -17,16 +17,12 @@ export function Projects() {
         </p>
       </div>
 
-      <div className="flex gap-8 py-4 overflow-x-scroll snap-x snap-mandatory scroll-smooth hide-scrollbar max-w-[76rem]">
+      <div className="flex gap-8 py-4 overflow-x-scroll overflow-y-hidden snap-x snap-mandatory hide-scrollbar scroll-smooth max-w-[76rem]">
         {ProjectInfos.slice(0, 4).map((project, index) => (
           <ProjectCard
             key={`project-card-${index}`}
             index={index}
-            name={project.project_name}
-            image={project.image}
-            shortDescription={project.short_description}
-            description={project.description}
-            // tools={project.tools}
+            project={project}
           />
         ))}
       </div>

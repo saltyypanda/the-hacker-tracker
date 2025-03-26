@@ -19,7 +19,7 @@ export function IndividualSkill({ name, src, width, height, index }: Props) {
     visible: { opacity: 1 },
   };
 
-  const animationDelay = 0.1;
+  const animationDelay = 0.05;
   return (
     <motion.div
       ref={ref}
@@ -27,7 +27,7 @@ export function IndividualSkill({ name, src, width, height, index }: Props) {
       variants={imageVariants}
       animate={inView ? "visible" : "hidden"}
       custom={index}
-      transition={{ delay: index * animationDelay }}
+      transition={{ delay: 0.5 + index * animationDelay }}
       className="flex flex-col items-center"
     >
       <img src={src} width={width} height={height} alt="skill image" />
