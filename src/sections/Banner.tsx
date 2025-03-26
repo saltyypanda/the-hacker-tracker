@@ -18,13 +18,11 @@ export default function Banner() {
             <TypingIntros />
             <h1 className="text-7xl font-bold">Tess Hacker</h1>
             <p className="py-6 text-lg">
-              {/* Lorem ipsum odor amet, consectetuer adipiscing elit. Gravida
-              consectetur libero ad ligula cras. Aliquet nibh dignissim
-              scelerisque sapien bibendum lectus himenaeos. Lacinia accumsan
-              dolor auctor erat dictumst curabitur. */}
               I'm a third year software engineering major at the Rochester
-              Institute of Technology. I'm passionate about accessibility in
-              software and using technology to improve people's everyday lives.
+              Institute of Technology. I enjoy software system design and optimizing
+              code for maintainability and scalability. I'm passionate about
+              accessibility in software and using technology to improve people's
+              everyday lives.
             </p>
             <a href="#skills" className="btn btn-primary w-60 font-body">
               Learn More

@@ -21,9 +21,11 @@ export function Projects() {
         {ProjectInfos.slice(0, 4).map((project, index) => (
           <ProjectCard
             key={`project-card-${index}`}
+            index={index}
             name={project.project_name}
             image={project.image}
             shortDescription={project.short_description}
+            description={project.description}
             // tools={project.tools}
           />
         ))}
