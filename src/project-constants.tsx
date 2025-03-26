@@ -22,7 +22,7 @@ Built in Django with both Patient and Caregiver
         building. Planned features include a training mode to help users
         relearn nouns, object recognition, and enhanced multi-user support
         through Auth0.`,
-    tools: ["Python", "Django", "HTML", "Tailwind", "CSS"],
+    tools: ["PYTHON", "DJANGO", "HTML", "TAILWIND", "CSS"],
     links: [
       {
         name: "GitHub Repo",
@@ -47,12 +47,12 @@ Built in Django with both Patient and Caregiver
         trends, using data pulled from Finnhub.
 
 We're using a suite of AWS services to build this project. Our frontend
-        is built with Vite and deployed via Amplify. It communicates with a custom
+        is built with React and deployed via Amplify. It communicates with a custom
         API that serves data from our database. The backend is powered by AWS
         Lambda, which periodically collects news data, sends it through AWS
         Comprehend for sentiment analysis, and stores the results. All
         infrastructure is provisioned using Terraform.`,
-    tools: ["AWS Services", "Vite", "TypeScript", "Python"],
+    tools: ["AWS", "REACT", "TYPESCRIPT", "PYTHON"],
     links: [],
   },
   {
@@ -74,7 +74,7 @@ The rebuild also introduces a robust backend to manage memberships, mentor
         open-source, we’re fostering a culture of collaboration and inviting
         new members to contribute to the Society’s growth through hands-on
         development experience.`,
-    tools: ["Next.js", "PostgreSQL", "Prisma", "TypeScript", "Tailwind"],
+    tools: ["NEXT_JS", "POSTGRESQL", "PRISMA", "TYPESCRIPT", "TAILWIND"],
     links: [
       {
         name: "GitHub Repo",

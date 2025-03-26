@@ -1,3 +1,5 @@
+import { Tools, ToolCategories } from "../tool-constants";
+
 interface Link {
   name: string;
   url: string;
@@ -75,22 +77,38 @@ export function ProjectCard({ index, project }: Props) {
                 <span className="font-bold text-lg">
                   Tools:&nbsp;&nbsp;&nbsp;
                 </span>
-                {project.tools.map((tool) => (
-                  <span className="bg-secondary rounded-md py-1 px-2 mx-1">
-                    {tool}
-                  </span>
-                ))}
+                {project.tools.map((toolKey) => {
+                  const tool = Tools[toolKey];
+                  const category = ToolCategories[tool.category];
+
+                  return (
+                    <span
+                      className="rounded-md py-1 px-2 mx-1"
+                      style={{ backgroundColor: category.colorHex }}
+                    >
+                      {tool.name}
+                    </span>
+                  );
+                })}
               </p>
 
               <p className="pt-4">
                 <span className="font-bold text-lg">
                   Links:&nbsp;&nbsp;&nbsp;
                 </span>
-                {project.links.length > 0 ? project.links.map((link) => (
-                  <a href={link.url} target="_blank" className="text-[#AFD7FF] underline bg-transparent rounded-md py-1 px-2 mx-1 transition-all duration-300 hover:bg-success hover:text-base-content">
-                    {link.name}
-                  </a>
-                )) : <span className="opacity-80">None</span>}
+                {project.links.length > 0 ? (
+                  project.links.map((link) => (
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      className="text-[#AFD7FF] underline bg-transparent rounded-md py-1 px-2 mx-1 transition-all duration-300 hover:bg-success hover:text-base-content"
+                    >
+                      {link.name}
+                    </a>
+                  ))
+                ) : (
+                  <span className="opacity-80">None</span>
+                )}
               </p>
             </div>
             <form method="dialog" className="modal-backdrop">
