@@ -36,17 +36,17 @@ export function NavBar() {
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-white text-lg">
           <li>
-            <a href="#home" className="hover:text-gray-300 transition-all">
+            <a href="#home" className="hover:text-accent transition-all">
               Home
             </a>
           </li>
           <li>
-            <a href="#skills" className="hover:text-gray-300 transition-all">
+            <a href="#skills" className="hover:text-accent transition-all">
               Skills
             </a>
           </li>
           <li>
-            <a href="#projects" className="hover:text-gray-300 transition-all">
+            <a href="#projects" className="hover:text-accent transition-all">
               Projects
             </a>
           </li>
@@ -54,7 +54,7 @@ export function NavBar() {
             <a
               href="/resume.pdf"
               download="Esther_Hacker_Resume.pdf"
-              className="hover:text-gray-300 transition-all"
+              className="hover:text-accent transition-all"
             >
               Resume
             </a>
