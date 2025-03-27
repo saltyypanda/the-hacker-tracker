@@ -87,3 +87,7 @@ h6 {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+#typing-intros {
+  font-family: 'IBM Plex Mono', monospace;
+}
