@@ -8,7 +8,7 @@ export default function Banner() {
       <div className="hero min-h-[92vh]">
         <div className="hero-content flex-col lg:flex-row-reverse gap-12 mx-auto items-center self-center w-11/12">
           <motion.img
-            className="w-1/2 object-contain"
+            className="w-1/2 object-contain glow"
             src={headerImage}
             alt="Cute astronaut"
             animate={{ y: [0, -8, 0] }}

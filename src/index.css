@@ -93,5 +93,5 @@ h6 {
 }
 
 .glow {
-  filter: drop-shadow(0 0 6px rgba(183, 255, 201, 0.5));
+  filter: drop-shadow(0 0 12px rgba(183, 255, 201, 0.5));
 }
