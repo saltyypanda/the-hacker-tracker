@@ -31,7 +31,7 @@ export function NavBar() {
     >
       <div className="container mx-auto flex justify-between items-center px-6 md:px-12 lg:px-20">
         <a href="#home" className="flex flex-col-reverse">
-          <img src={panda} alt="Logo" width={120} height={120} className="ml-3 glow" />
+          <img src={panda} alt="Logo" width={120} height={120} className="ml-3" />
         </a>
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-white text-lg">
