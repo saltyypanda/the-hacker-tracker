@@ -51,7 +51,11 @@ export function NavBar() {
             </a>
           </li>
           <li>
-            <a href="#resume" className="hover:text-gray-300 transition-all">
+            <a
+              href="/resume.pdf"
+              download="Esther_Hacker_Resume.pdf"
+              className="hover:text-gray-300 transition-all"
+            >
               Resume
             </a>
           </li>
@@ -77,9 +81,17 @@ export function NavBar() {
               <img src={githubIcon} alt="GitHub Icon" width={32} height={32} />
             </div>
           </a>
-          <a href="https://devpost.com/saltyypanda?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="_blank">
+          <a
+            href="https://devpost.com/saltyypanda?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav"
+            target="_blank"
+          >
             <div className="w-12 h-12 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all duration-300">
-              <img src={devpostIcon} alt="Devpost Icon" width={26} height={26} />
+              <img
+                src={devpostIcon}
+                alt="Devpost Icon"
+                width={26}
+                height={26}
+              />
             </div>
           </a>
           <button
