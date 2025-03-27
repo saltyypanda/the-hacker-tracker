@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import linkedinIcon from "../assets/icons/linkedin-icon.svg";
 import githubIcon from "../assets/icons/github-icon.svg";
 import devpostIcon from "../assets/icons/devpost-icon.svg";
-import logo from "../assets/logo.svg";
+import panda from "../assets/panda-final-logo.png";
 import { ContactMeModal } from "./ContactMeModal";
 
 export function NavBar() {
@@ -30,8 +30,8 @@ export function NavBar() {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-6 md:px-12 lg:px-20">
-        <a href="#home">
-          <img src={logo} alt="Logo" width={80} height={80} />
+        <a href="#home" className="flex flex-col-reverse">
+          <img src={panda} alt="Logo" width={120} height={120} className="ml-3 glow" />
         </a>
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-white text-lg">
