@@ -35,7 +35,7 @@ Built in Django with both Patient and Caregiver
     ],
   },
   {
-    project_name: "Stock Sentiment Tracker",
+    project_name: "Stock Stalker",
     time_range: "",
     image: "/project-images/stonks-homepage.png",
     short_description: `A full-stack AWS-based web application that predicts stock trends for S&P 500 companies based on sentiments pulled from various sources.`,
