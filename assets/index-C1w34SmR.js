@@ -65,7 +65,7 @@ Built in Django with both Patient and Caregiver
         a functional prototype in just 24 hours, and we’re excited to keep
         building. Planned features include a training mode to help users
         relearn nouns, object recognition, and enhanced multi-user support
-        through Auth0.`,tools:["PYTHON","DJANGO","HTML","TAILWIND","CSS"],links:[{name:"GitHub Repo",url:"https://github.com/sjk7876/brickhack11"},{name:"Devpost Post",url:"https://devpost.com/software/petal-od7isk"}]},{project_name:"Stock Sentiment Tracker",time_range:"",image:"/project-images/stonks-homepage.png",short_description:"A full-stack AWS-based web application that predicts stock trends for S&P 500 companies based on sentiments pulled from various sources.",description:`This is a semester-long project for my Cloud Computing
+        through Auth0.`,tools:["PYTHON","DJANGO","HTML","TAILWIND","CSS"],links:[{name:"GitHub Repo",url:"https://github.com/sjk7876/brickhack11"},{name:"Devpost Post",url:"https://devpost.com/software/petal-od7isk"}]},{project_name:"Stock Stalker",time_range:"",image:"/project-images/stonks-homepage.png",short_description:"A full-stack AWS-based web application that predicts stock trends for S&P 500 companies based on sentiments pulled from various sources.",description:`This is a semester-long project for my Cloud Computing
         class at RIT. I'm working with three classmates to build an application
         that takes a stock ticker, time range, and source selection from the
         user, then gathers and analyzes sentiment data from those sources. The
