@@ -1,5 +1,29 @@
 import { ExperienceInfos } from "../experience-constants";
-import { Star } from "lucide-react";
+import {
+  Briefcase,
+  BookOpenCheck,
+  ServerCog,
+  Microscope,
+  Users,
+  Star,
+} from "lucide-react";
+
+const getIconForType = (type: string) => {
+  switch (type) {
+    case "internship":
+      return <Briefcase className="w-5 h-5 text-sky-400" />;
+    case "teaching":
+      return <BookOpenCheck className="w-5 h-5 text-emerald-400" />;
+    case "leadership":
+      return <ServerCog className="w-5 h-5 text-pink-400" />;
+    case "outreach":
+      return <Users className="w-5 h-5 text-orange-400" />;
+    case "research":
+      return <Microscope className="w-5 h-5 text-purple-400" />;
+    default:
+      return <Star className="w-5 h-5 text-yellow-400" />;
+  }
+};
 
 export const Experience = () => {
   return (
@@ -26,13 +50,17 @@ export const Experience = () => {
             return (
               <li key={index}>
                 <div className="timeline-middle">
-                  <div className="timeline-middle text-yellow-400 pb-1.5">
-                    <Star className="w-5 h-5" />
+                  <div className="timeline-middle pb-1.5">
+                    {getIconForType(experience.type)}
                   </div>
                 </div>
 
                 <div
-                  className={`timeline-${timelinePos} mb-8 mx-4 md:text-${textPos}`}
+                  className={`${
+                    timelinePos === "start" ? "timeline-start" : "timeline-end"
+                  } mb-8 mx-4 ${
+                    textPos === "start" ? "md:text-start" : "md:text-end"
+                  }`}
                 >
                   <time className="font-mono italic text-md text-[#FF6BA3]">
                     {experience.time_range}
