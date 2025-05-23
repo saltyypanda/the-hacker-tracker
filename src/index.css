@@ -15,7 +15,8 @@
   --color-neutral: #361447;
   --color-base-100: #121212;
   --color-base-200: #282828;
-  --color-success: #403bef;
+  --color-base-300: #3c3c3c;
+  --color-success: #AFD7FF;
 }
 
 @plugin "daisyui/theme" {

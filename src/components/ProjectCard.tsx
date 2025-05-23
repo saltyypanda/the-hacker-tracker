@@ -101,7 +101,7 @@ export function ProjectCard({ index, project }: Props) {
                     <a
                       href={link.url}
                       target="_blank"
-                      className="text-[#AFD7FF] underline bg-transparent rounded-md py-1 px-2 mx-1 transition-all duration-300 hover:bg-success hover:text-base-content"
+                      className="text-success underline bg-transparent rounded-md py-1 px-2 mx-1 transition-all duration-300 hover:bg-[#403bef] hover:text-base-content"
                     >
                       {link.name}
                     </a>
