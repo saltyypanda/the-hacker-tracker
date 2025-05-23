@@ -31,7 +31,7 @@ export function IndividualSkill({ name, src, width, height, index }: Props) {
       className="flex flex-col items-center"
     >
       <img src={src} width={width} height={height} alt="skill image" />
-      <p className="text-base-content opacity-60 text-lg">{name}</p>
+      <p className="text-base-content/60 text-lg">{name}</p>
     </motion.div>
   );
 }

@@ -12,7 +12,7 @@ export function Skills() {
         <header className="flex text-5xl font-bold text-base-content text-center my-8">
           Skills
         </header>
-        <p className="text-xl text-center text-base-content opacity-60">
+        <p className="text-xl text-center text-base-content/60">
           Here's some cool useful stuff I learned over the past few years.
         </p>
       </div>

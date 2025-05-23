@@ -51,12 +51,8 @@ export function NavBar() {
             </a>
           </li>
           <li>
-            <a
-              href="/resume.pdf"
-              download="Esther_Hacker_Resume.pdf"
-              className="hover:text-accent transition-all"
-            >
-              Resume
+            <a href="#experience" className="hover:text-accent transition-all">
+              Experience
             </a>
           </li>
         </ul>

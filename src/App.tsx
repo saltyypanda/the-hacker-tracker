@@ -4,6 +4,7 @@ import { Skills } from "./sections/Skills";
 import Banner from "./sections/Banner";
 import { Projects } from "./sections/Projects";
 import { Footer } from "./sections/Footer";
+import { Experience } from "./sections/Experience";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Banner />
         <Skills />
         <Projects />
+        <Experience />
       </Layout>
       <Footer />
     </>

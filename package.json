@@ -13,6 +13,7 @@
   "dependencies": {
     "@flodlc/nebula": "^1.0.56",
     "animate.css": "^4.1.1",
+    "lucide-react": "^0.511.0",
     "motion": "^12.4.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -12,7 +12,7 @@ export function Projects() {
         <header className="flex text-5xl font-bold text-base-content text-center">
           Projects
         </header>
-        <p className="text-xl text-center text-base-content opacity-60">
+        <p className="text-xl text-center text-base-content/60">
           Some of the academic and personal projects I've done.
         </p>
       </div>
