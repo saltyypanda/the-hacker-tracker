@@ -1,6 +1,6 @@
 export const ExperienceInfos = [
   {
-    title: "SWE Internship",
+    title: "SWE Intern",
     company: "Microsoft",
     organization: "Office Products",
     location: "Redmond, WA",
