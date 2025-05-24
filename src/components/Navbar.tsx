@@ -121,7 +121,7 @@ export function NavBar() {
           </div>
 
           <button
-            className="btn btn-primary mt-4"
+            className="text-lg btn btn-primary mt-4"
             onClick={() => {
               document.getElementById("nav-drawer")?.click();
               setModalOpen(true);
