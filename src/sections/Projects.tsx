@@ -3,21 +3,20 @@ import { ProjectInfos } from "../project-constants";
 
 export function Projects() {
   return (
-    <div
-      className="flex flex-col items-center w-[85%] min-h-[85vh] mt-[64px] p-10 bg-transparent text-black rounded-[4rem] gap-8"
-      style={{ transform: "scale(0.9)" }}
+    <section
       id="projects"
+      className="flex flex-col items-center w-full px-4 sm:px-6 md:px-10 py-12 sm:py-16 text-black"
     >
-      <div className="w-[75%] flex flex-col items-center gap-8">
-        <header className="flex text-5xl font-bold text-base-content text-center">
+      <div className="w-full max-w-5xl flex flex-col items-center text-center gap-6">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-base-content">
           Projects
-        </header>
-        <p className="text-xl text-center text-base-content/60">
+        </h2>
+        <p className="text-base sm:text-lg text-base-content/60 max-w-xl">
           Some of the academic and personal projects I've done.
         </p>
       </div>
 
-      <div className="flex gap-8 py-4 overflow-x-scroll overflow-y-hidden snap-x snap-mandatory hide-scrollbar scroll-smooth max-w-[76rem]">
+      <div className="mt-10 flex flex-wrap justify-center gap-6 sm:gap-8 w-full max-w-screen-xl">
         {ProjectInfos.slice(0, 4).map((project, index) => (
           <ProjectCard
             key={`project-card-${index}`}
@@ -26,6 +25,6 @@ export function Projects() {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
