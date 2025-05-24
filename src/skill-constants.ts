@@ -22,7 +22,6 @@ import djangoIcon from "@iconify-icons/logos/django-icon";
 import springIcon from "@iconify-icons/logos/spring-icon";
 
 import lambdaIcon from "@iconify-icons/logos/aws-lambda";
-import awsIcon from "@iconify-icons/logos/aws";
 import amplifyIcon from "@iconify-icons/logos/aws-amplify";
 import s3Icon from "@iconify-icons/logos/aws-S3";
 import dynamodbIcon from "@iconify-icons/logos/aws-DynamoDB";
