@@ -146,7 +146,7 @@ export function ContactMeModal({
                     ❌ Something went wrong. Please try again later.
                   </p>
                 ) : submitted ? (
-                  <p className="text-green-600 text-base font-medium text-center">
+                  <p className="text-green-600 text-sm font-medium text-center">
                     ✅ Thanks! Your message has been sent.
                   </p>
                 ) : (
@@ -240,7 +240,7 @@ export function ContactMeModal({
             </h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               {error ? (
-                <p className="text-red-600 text-sm text-center">
+                <p className="text-red-600 text-lg text-center">
                   ❌ Something went wrong. Please try again later.
                 </p>
               ) : submitted ? (
