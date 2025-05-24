@@ -39,26 +39,15 @@ export const Experience = () => {
           My leadership and work experience over the past few years.
         </p>
 
-        <ul className="timeline timeline-snap-icon timeline-vertical w-full text-base-content max-[1024px]:timeline-compact max-[1024px]:timeline-box">
+        <ul className="timeline timeline-snap-icon timeline-vertical w-full text-base-content timeline-compact max-lg:timeline-box lg:max-w-[75%] lg:pl-16">
           {ExperienceInfos.map((experience, index) => {
-            const { timelinePos, textPos } =
-              index % 2 === 0
-                ? { timelinePos: "start", textPos: "end" }
-                : { timelinePos: "end", textPos: "start" };
-
             return (
               <li key={index}>
                 <div className="timeline-middle pb-1.5">
                   {getIconForType(experience.type)}
                 </div>
 
-                <div
-                  className={`${
-                    timelinePos === "start" ? "timeline-start" : "timeline-end"
-                  } mb-10 mx-2 sm:mx-4 ${
-                    textPos === "start" ? "lg:text-start" : "lg:text-end"
-                  }`}
-                >
+                <div className="timeline-start mb-8 mx-2 sm:mx-4 text-start">
                   <time className="font-mono italic text-sm sm:text-base text-[#FF6BA3]">
                     {experience.time_range}
                   </time>
@@ -75,7 +64,7 @@ export const Experience = () => {
                     {experience.company} – {experience.location}
                   </div>
 
-                  <div className="text-sm md:text-base leading-relaxed text-base-content">
+                  <div className="text-sm md:text-base leading-relaxed text-base-content max-w-prose">
                     {experience.description}
                   </div>
                 </div>
