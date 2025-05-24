@@ -1,128 +1,64 @@
+import pythonIcon from "@iconify-icons/logos/python";
+import javaIcon from "@iconify-icons/logos/java";
+import html5Icon from "@iconify-icons/logos/html-5";
+import css3Icon from "@iconify-icons/logos/css-3";
+import jsIcon from "@iconify-icons/logos/javascript";
+import tsIcon from "@iconify-icons/logos/typescript-icon";
+import cIcon from "@iconify-icons/logos/c";
+import cppIcon from "@iconify-icons/logos/c-plusplus";
+
+import reactIcon from "@iconify-icons/logos/react";
+import reduxIcon from "@iconify-icons/logos/redux";
+import tailwindIcon from "@iconify-icons/logos/tailwindcss-icon";
+import nextIcon from "@iconify-icons/logos/nextjs-icon";
+import framerIcon from "@iconify-icons/logos/framer";
+import nodejsIcon from "@iconify-icons/logos/nodejs-icon";
+import angularIcon from "@iconify-icons/logos/angular-icon";
+
+import expressIcon from "@iconify-icons/logos/express";
+import postgresqlIcon from "@iconify-icons/logos/postgresql";
+import prismaIcon from "@iconify-icons/logos/prisma";
+import djangoIcon from "@iconify-icons/logos/django-icon";
+import springIcon from "@iconify-icons/logos/spring-icon";
+
+import lambdaIcon from "@iconify-icons/logos/aws-lambda";
+import awsIcon from "@iconify-icons/logos/aws";
+import amplifyIcon from "@iconify-icons/logos/aws-amplify";
+import terraformIcon from "@iconify-icons/logos/terraform-icon";
+
 export const Languages = [
-  {
-    skill_name: "Python",
-    Image: "/skills/python.webp",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Java",
-    Image: "/skills/java.webp",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Html 5",
-    Image: "/skills/html.webp",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Css",
-    Image: "/skills/css.webp",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Java Script",
-    Image: "/skills/js.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Type Script",
-    Image: "/skills/ts.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "C",
-    Image: "/skills/c.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "C++",
-    Image: "/skills/cpp.png",
-    width: 80,
-    height: 80,
-  },
+  { skill_name: "Python", icon: pythonIcon },
+  { skill_name: "Java", icon: javaIcon },
+  { skill_name: "HTML5", icon: html5Icon },
+  { skill_name: "CSS3", icon: css3Icon },
+  { skill_name: "JavaScript", icon: jsIcon },
+  { skill_name: "TypeScript", icon: tsIcon },
+  { skill_name: "C", icon: cIcon },
+  { skill_name: "C++", icon: cppIcon },
 ];
 
 export const FrontendSkills = [
-  {
-    skill_name: "Tailwind Css",
-    Image: "/skills/tailwind.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "React",
-    Image: "/skills/react.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Redux",
-    Image: "/skills/redux.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Next js 13",
-    Image: "/skills/next.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Framer Motion",
-    Image: "/skills/framer.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Node js",
-    Image: "/skills/node-js.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Angular",
-    Image: "/skills/angular.png",
-    width: 80,
-    height: 80,
-  },
+  { skill_name: "Tailwind CSS", icon: tailwindIcon },
+  { skill_name: "React", icon: reactIcon },
+  { skill_name: "Redux", icon: reduxIcon },
+  { skill_name: "Next.js", icon: nextIcon },
+  { skill_name: "Framer Motion", icon: framerIcon },
+  { skill_name: "Node.js", icon: nodejsIcon },
+  { skill_name: "Angular", icon: angularIcon },
 ];
 
 export const BackendSkills = [
-  {
-    skill_name: "Express js",
-    Image: "/skills/express.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "PostgreSQL",
-    Image: "/skills/postger.png",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "Prisma",
-    Image: "/skills/prisma.webp",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "Django",
-    Image: "/skills/django.svg",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "Spring Boot",
-    Image: "/skills/spring.png",
-    width: 70,
-    height: 70,
-  },
+  { skill_name: "Express.js", icon: expressIcon },
+  { skill_name: "PostgreSQL", icon: postgresqlIcon },
+  { skill_name: "Prisma", icon: prismaIcon },
+  { skill_name: "Django", icon: djangoIcon },
+  { skill_name: "Spring Boot", icon: springIcon },
+];
+
+export const CloudSkills = [
+  { skill_name: "AWS Lambda", icon: lambdaIcon },
+  { skill_name: "Amazon S3", icon: awsIcon },
+  { skill_name: "DynamoDB", icon: awsIcon },
+  { skill_name: "AWS Amplify", icon: amplifyIcon },
+  { skill_name: "Terraform", icon: terraformIcon },
 ];

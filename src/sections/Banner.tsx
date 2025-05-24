@@ -17,7 +17,7 @@ export default function Banner() {
         <div className="flex flex-col gap-4 w-full sm:w-5/6 md:w-3/4 lg:w-2/3 xl:w-1/2 text-center xl:text-left">
           <TypingIntros />
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
-            Tess Hacker
+            Esther Hacker
           </h1>
           <p className="py-4 sm:py-6 text-base sm:text-lg">
             I'm a third year software engineering major at the Rochester
