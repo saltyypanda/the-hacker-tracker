@@ -28,7 +28,7 @@ export default function Banner() {
           </p>
           <a
             href="#skills"
-            className="btn btn-primary w-40 sm:w-52 md:w-60 mx-auto xl:mx-0 font-body"
+            className="btn btn-primary w-40 sm:w-52 md:w-60 mx-auto xl:mx-0 font-body text-md"
           >
             Learn More
           </a>
