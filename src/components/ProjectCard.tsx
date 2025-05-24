@@ -22,7 +22,7 @@ interface Props {
 
 export function ProjectCard({ index, project }: Props) {
   return (
-    <div className="card bg-transparent text-base-content w-full sm:w-96 shrink-0 transition-all duration-300 hover:bg-base-200 hover:shadow-lg hover:cursor-default hover:-translate-y-0.5">
+    <div className="card bg-transparent sm:border border-base-300 p-4 text-base-content w-full sm:w-96 shrink-0 transition-all duration-300 hover:bg-base-200 hover:shadow-lg hover:cursor-default hover:-translate-y-0.5">
       <figure>
         <div className="aspect-[1.86] w-full">
           <img
@@ -34,10 +34,10 @@ export function ProjectCard({ index, project }: Props) {
       </figure>
 
       <div className="card-body">
-        <h2 className="card-title text-xl sm:text-2xl">
+        <h2 className="card-title text-mg sm:text-2xl">
           {project.project_name}
         </h2>
-        <p className="text-base sm:text-lg opacity-80">
+        <p className="text-base sm:text-md opacity-80">
           {project.short_description}
         </p>
 

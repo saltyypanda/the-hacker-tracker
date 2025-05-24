@@ -16,7 +16,7 @@ export function Projects() {
         </p>
       </div>
 
-      <div className="mt-10 flex flex-wrap justify-center gap-6 sm:gap-8 w-full max-w-screen-xl">
+      <div className="mt-10 flex flex-wrap justify-center gap-16 lg:gap-8 w-full max-w-screen-xl">
         {ProjectInfos.slice(0, 4).map((project, index) => (
           <ProjectCard
             key={`project-card-${index}`}
