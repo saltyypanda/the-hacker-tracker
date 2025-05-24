@@ -1,3 +1,4 @@
+import { X } from "lucide-react";
 import { Tools, ToolCategories } from "../tool-constants";
 
 interface Link {
@@ -34,7 +35,7 @@ export function ProjectCard({ index, project }: Props) {
       </figure>
 
       <div className="card-body">
-        <h2 className="card-title text-mg sm:text-2xl">
+        <h2 className="card-title text-md sm:text-2xl">
           {project.project_name}
         </h2>
         <p className="text-base sm:text-md opacity-80">
@@ -59,7 +60,14 @@ export function ProjectCard({ index, project }: Props) {
             id={`project-${index}-modal`}
             className="modal transition-opacity duration-300"
           >
-            <div className="modal-box m-auto w-[95vw] sm:w-[90vw] md:w-[45vw] max-w-5xl h-[85vh] grid grid-rows-[auto_auto_1fr_auto_auto] items-center bg-base-200 transition-opacity duration-300 ease-in-out">
+            <div className="modal-box m-auto w-[95vw] sm:w-[90vw] md:w-[75vw] lg:w-[60vw] xl:w-[45vw] max-w-5xl h-auto max-h-[85vh] grid grid-rows-[auto_auto_auto_1fr_auto_auto] items-center bg-base-200 transition-opacity duration-300 ease-in-out">
+              <form method="dialog">
+                {/* if there is a button in form, it will close the modal */}
+                <button className="btn btn-sm btn-circle btn-ghost shadow-none border-none bg-transparent absolute right-2 top-2">
+                  <X className="w-4 h-4" />
+                </button>
+              </form>
+
               {/* Image */}
               <div className="flex justify-center aspect-[1.86] p-4">
                 <img
