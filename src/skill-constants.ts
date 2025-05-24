@@ -11,7 +11,7 @@ import reactIcon from "@iconify-icons/logos/react";
 import reduxIcon from "@iconify-icons/logos/redux";
 import tailwindIcon from "@iconify-icons/logos/tailwindcss-icon";
 import nextIcon from "@iconify-icons/logos/nextjs-icon";
-import framerIcon from "@iconify-icons/logos/framer";
+// import framerIcon from "@iconify-icons/logos/framer";
 import nodejsIcon from "@iconify-icons/logos/nodejs-icon";
 import angularIcon from "@iconify-icons/logos/angular-icon";
 
@@ -24,6 +24,8 @@ import springIcon from "@iconify-icons/logos/spring-icon";
 import lambdaIcon from "@iconify-icons/logos/aws-lambda";
 import awsIcon from "@iconify-icons/logos/aws";
 import amplifyIcon from "@iconify-icons/logos/aws-amplify";
+import s3Icon from "@iconify-icons/logos/aws-S3";
+import dynamodbIcon from "@iconify-icons/logos/aws-DynamoDB";
 import terraformIcon from "@iconify-icons/logos/terraform-icon";
 
 export const Languages = [
@@ -42,7 +44,7 @@ export const FrontendSkills = [
   { skill_name: "React", icon: reactIcon },
   { skill_name: "Redux", icon: reduxIcon },
   { skill_name: "Next.js", icon: nextIcon },
-  { skill_name: "Framer Motion", icon: framerIcon },
+  // { skill_name: "Framer Motion", icon: framerIcon },
   { skill_name: "Node.js", icon: nodejsIcon },
   { skill_name: "Angular", icon: angularIcon },
 ];
@@ -57,8 +59,8 @@ export const BackendSkills = [
 
 export const CloudSkills = [
   { skill_name: "AWS Lambda", icon: lambdaIcon },
-  { skill_name: "Amazon S3", icon: awsIcon },
-  { skill_name: "DynamoDB", icon: awsIcon },
+  { skill_name: "Amazon S3", icon: s3Icon },
+  { skill_name: "DynamoDB", icon: dynamodbIcon },
   { skill_name: "AWS Amplify", icon: amplifyIcon },
   { skill_name: "Terraform", icon: terraformIcon },
 ];
