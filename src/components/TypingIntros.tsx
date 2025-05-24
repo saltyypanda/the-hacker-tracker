@@ -57,8 +57,8 @@ const TypingIntros = () => {
   }, [text]);
 
   return (
-    <div id="typing-intros" className="flex flex-col gap-2">
-      <p className="text-3xl whitespace-nowrap overflow-hidden flex-1 !font-jura shrink text-accent animate__animated animate__fadeIn animate__delay-1s">
+    <div id="typing-intros" className="w-full flex flex-col gap-2">
+      <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl whitespace-nowrap overflow-hidden !font-jura shrink text-accent animate__animated animate__fadeIn animate__delay-1s">
         {text || "\u00a0"}
         <span className="animate-pulse">|</span>
       </p>

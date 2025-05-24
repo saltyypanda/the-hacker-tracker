@@ -4,7 +4,7 @@ import { NavBar } from "./Navbar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="font-inter">
+    <div className="w-screen font-inter">
       <Background />
       <NavBar />
       <div className="flex flex-col w-full items-center">
