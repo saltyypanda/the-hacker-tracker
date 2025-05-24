@@ -28,19 +28,18 @@ const getIconForType = (type: string) => {
 export const Experience = () => {
   return (
     <div
-      className="flex flex-col items-center w-[85%] min-h-[85vh] mt-[64px] p-10 bg-transparent text-black rounded-[4rem] gap-8"
-      style={{ transform: "scale(0.9)" }}
       id="experience"
+      className="flex flex-col items-center w-full px-4 sm:px-6 md:px-10 py-12 min-h-[85vh]"
     >
-      <div className="w-[75%] flex flex-col items-center gap-8">
-        <header className="text-5xl font-bold text-base-content text-center">
+      <div className="w-full max-w-6xl flex flex-col items-center gap-8">
+        <header className="text-4xl sm:text-5xl font-bold text-base-content text-center">
           Experience
         </header>
-        <p className="text-xl text-center text-base-content/60">
+        <p className="text-base sm:text-lg text-center text-base-content/60">
           My leadership and work experience over the past few years.
         </p>
 
-        <ul className="timeline timeline-snap-icon w-full timeline-vertical text-base-content">
+        <ul className="timeline timeline-snap-icon timeline-vertical w-full text-base-content max-[1024px]:timeline-compact max-[1024px]:timeline-box">
           {ExperienceInfos.map((experience, index) => {
             const { timelinePos, textPos } =
               index % 2 === 0
@@ -49,36 +48,34 @@ export const Experience = () => {
 
             return (
               <li key={index}>
-                <div className="timeline-middle">
-                  <div className="timeline-middle pb-1.5">
-                    {getIconForType(experience.type)}
-                  </div>
+                <div className="timeline-middle pb-1.5">
+                  {getIconForType(experience.type)}
                 </div>
 
                 <div
                   className={`${
                     timelinePos === "start" ? "timeline-start" : "timeline-end"
-                  } mb-8 mx-4 ${
-                    textPos === "start" ? "md:text-start" : "md:text-end"
+                  } mb-10 mx-2 sm:mx-4 ${
+                    textPos === "start" ? "lg:text-start" : "lg:text-end"
                   }`}
                 >
-                  <time className="font-mono italic text-md text-[#FF6BA3]">
+                  <time className="font-mono italic text-sm sm:text-base text-[#FF6BA3]">
                     {experience.time_range}
                   </time>
 
-                  <div className="text-2xl font-bold text-accent mt-1">
+                  <div className="text-xl sm:text-2xl font-bold text-accent mt-1">
                     {experience.title}
                   </div>
 
-                  <div className="text-md font-semibold text-success">
+                  <div className="text-sm sm:text-md font-semibold text-success">
                     {experience.organization}
                   </div>
 
-                  <div className="text-lg italic text-base-content/70 mb-2">
+                  <div className="text-sm sm:text-lg italic text-base-content/70 mb-2">
                     {experience.company} – {experience.location}
                   </div>
 
-                  <div className="text-lg leading-relaxed text-base-content">
+                  <div className="text-sm md:text-base leading-relaxed text-base-content">
                     {experience.description}
                   </div>
                 </div>
