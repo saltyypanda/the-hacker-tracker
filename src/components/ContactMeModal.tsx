@@ -1,3 +1,4 @@
+import { X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export function ContactMeModal({
@@ -50,33 +51,147 @@ export function ContactMeModal({
   useEffect(() => {
     const dialog = modalRef.current;
     if (dialog) {
-      if (open) dialog.showModal();
-      else dialog.close();
+      open ? dialog.showModal() : dialog.close();
     }
   }, [open]);
 
   return (
     <dialog ref={modalRef} className="modal" onClose={closeModal}>
-      <div className="modal-box w-11/12 max-w-6xl bg-base-100 text-base-content p-16">
+      <div className="modal-box w-screen sm:w-[90vw] md:w-[80vw] max-w-6xl h-screen sm:h-[90vh] md:h-[80vh] lg:h-auto bg-base-100 text-base-content px-4 sm:px-8 md:px-16 py-8 sm:py-12">
         <form method="dialog">
           <button
-            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            className="btn btn-ghost btn-circle shadow-none border-none bg-transparent absolute right-4 top-4"
             onClick={closeModal}
           >
-            ✕
+            <X className="w-6 h-6" />
           </button>
         </form>
 
-        <div className="flex justify-self-center mb-8">
-          <div>
-            <h2 className="text-4xl font-bold text-center">Let's Connect</h2>
-            <p className="opacity-70 mt-2 text-center">
-              I'd love to hear from you!
-            </p>
+        {/* Heading */}
+        <div className="text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+            Let's Connect
+          </h2>
+          <p className="opacity-70 mt-2 text-sm sm:text-base">
+            I'd love to hear from you!
+          </p>
+        </div>
+
+        {/* Tabs for mobile */}
+        <div className="block lg:hidden">
+          <div className="tabs tabs-bordered flex justify-center">
+            {/* Radio Tabs */}
+            <input
+              type="radio"
+              name="contact_tabs"
+              role="tab"
+              className="tab"
+              aria-label="Contact Info"
+              defaultChecked
+            />
+            <div className="tab-content border-base-300 bg-base-100 w-full p-4">
+              <h2 className="text-xl text-accent font-semibold text-center mb-2">
+                Contact Info
+              </h2>
+              <p className="text-base opacity-80 text-center mb-4">
+                Feel free to reach out to me directly!
+              </p>
+              <div className="space-y-4 ps-2 text-sm">
+                <div className="flex gap-2">
+                  <h3 className="font-semibold text-success">Email:</h3>
+                  <a
+                    href="mailto:esh7943@rit.edu"
+                    className="link opacity-80 hover:text-primary transition"
+                  >
+                    esh7943@rit.edu
+                  </a>
+                </div>
+                <div className="flex gap-2">
+                  <h3 className="font-semibold text-success">LinkedIn:</h3>
+                  <a
+                    href="https://www.linkedin.com/in/tess-hacker"
+                    target="_blank"
+                    className="link opacity-80 hover:text-primary transition"
+                  >
+                    tess-hacker
+                  </a>
+                </div>
+                <div className="flex gap-2">
+                  <h3 className="font-semibold text-success">Resume:</h3>
+                  <a
+                    href="/resume.pdf"
+                    download="Esther_Hacker_Resume.pdf"
+                    className="link opacity-80 hover:text-primary transition"
+                  >
+                    Download
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <input
+              type="radio"
+              name="contact_tabs"
+              role="tab"
+              className="tab"
+              aria-label="Email Me"
+            />
+            <div className="tab-content border-base-300 bg-base-100 w-full p-4">
+              <h2 className="text-xl text-accent font-semibold text-center mb-2">
+                Email Me
+              </h2>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                {error ? (
+                  <p className="text-red-600 text-sm text-center">
+                    ❌ Something went wrong. Please try again later.
+                  </p>
+                ) : submitted ? (
+                  <p className="text-green-600 text-base font-medium text-center">
+                    ✅ Thanks! Your message has been sent.
+                  </p>
+                ) : (
+                  <p className="text-base-content text-sm text-center opacity-80">
+                    Send me an email through this form!
+                  </p>
+                )}
+
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  value={formState.name}
+                  onChange={handleChange}
+                  className="input input-bordered w-full"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                  value={formState.email}
+                  onChange={handleChange}
+                  className="input input-bordered w-full"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  required
+                  rows={5}
+                  value={formState.message}
+                  onChange={handleChange}
+                  className="textarea textarea-bordered w-full"
+                />
+                <button type="submit" className="btn btn-primary">
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Desktop View: Side-by-side */}
+        <div className="hidden lg:grid grid-cols-2 gap-8 mt-4">
           {/* Contact Info */}
           <div className="flex flex-col gap-4 border border-base-300 rounded-xl p-6 shadow">
             <h2 className="text-2xl text-accent font-semibold text-center">
@@ -125,15 +240,15 @@ export function ContactMeModal({
             </h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               {error ? (
-                <p className="text-red-600 text-sm text-center mb-4">
+                <p className="text-red-600 text-sm text-center">
                   ❌ Something went wrong. Please try again later.
                 </p>
               ) : submitted ? (
-                <p className="text-green-600 text-lg font-medium text-center mb-4">
+                <p className="text-green-600 text-lg font-medium text-center">
                   ✅ Thanks! Your message has been sent.
                 </p>
               ) : (
-                <p className="text-base-content text-lg text-center opacity-80 mb-4">
+                <p className="text-base-content text-lg text-center opacity-80">
                   Send me an email through this form!
                 </p>
               )}
