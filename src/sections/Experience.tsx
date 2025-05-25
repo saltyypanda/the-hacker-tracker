@@ -39,7 +39,7 @@ export const Experience = () => {
           My leadership and work experience over the past few years.
         </p>
 
-        <ul className="timeline timeline-snap-icon timeline-vertical w-full text-base-content timeline-compact max-lg:timeline-box lg:max-w-[75%] lg:pl-16">
+        <ul className="timeline timeline-snap-icon timeline-vertical w-full text-base-content timeline-compact max-xl:timeline-box md:max-w-[75%] xl:pl-16">
           {ExperienceInfos.map((experience, index) => {
             return (
               <li key={index}>
