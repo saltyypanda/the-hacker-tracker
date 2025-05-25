@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Banner() {
   return (
     <div id="home" className="hero w-full min-h-screen">
-      <div className="hero-content flex-col gap-8 px-4 sm:px-8 md:px-12 xl:flex-row-reverse xl:gap-12 xl:w-11/12 mx-auto">        
+      <div className="hero-content flex-col gap-8 px-4 sm:px-8 md:px-12 xl:flex-row-reverse xl:gap-12 xl:w-11/12 mx-auto">
         <motion.img
           className="hidden md:block sm:w-2/3 md:w-1/2 object-contain glow"
           src={headerImage}
@@ -17,7 +17,7 @@ export default function Banner() {
         <div className="flex flex-col gap-4 w-full sm:w-5/6 md:w-3/4 lg:w-2/3 xl:w-1/2 text-center xl:text-left">
           <TypingIntros />
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
-            Esther Hacker
+            Tess Hacker
           </h1>
           <p className="py-4 sm:py-6 text-base sm:text-lg">
             I'm a third year software engineering major at the Rochester
