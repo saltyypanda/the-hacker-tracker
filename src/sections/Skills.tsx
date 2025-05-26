@@ -9,12 +9,12 @@ import {
 } from "../skill-constants";
 
 export function Skills() {
-/**
- * The Skills component renders a list of skills as a row of cards,
- * with each card containing an icon and the name of the skill.
- *
- * @returns {JSX.Element} The JSX element representing the Skills component.
- */
+  /**
+   * The Skills component renders a list of skills as a row of cards,
+   * with each card containing an icon and the name of the skill.
+   *
+   * @returns {JSX.Element} The JSX element representing the Skills component.
+   */
   const allSkills = [
     ...Languages,
     ...FrontendSkills,
@@ -44,21 +44,49 @@ export function Skills() {
           const { ref, inView } = useInView({ triggerOnce: true });
 
           return (
-            <motion.div
-              key={index}
-              ref={ref}
-              initial={{ opacity: 0, y: 10 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-              transition={{
-                delay: index * animationDelay + initialDelay,
-                duration: 0.4,
-                ease: "easeIn",
-              }}
-              className="flex flex-col items-center w-20 sm:w-24 text-center"
-            >
-              <Icon icon={icon} width={50} height={50} className="sm:w-[60px] sm:h-[60px]" />
-              <p className="text-sm sm:text-base text-base-content/60 mt-2">{skill_name}</p>
-            </motion.div>
+            <>
+              <div className="hidden lg:block">
+                <motion.div
+                  key={index}
+                  ref={ref}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={
+                    inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
+                  }
+                  transition={{
+                    delay: index * animationDelay + initialDelay,
+                    duration: 0.4,
+                    ease: "easeIn",
+                  }}
+                  className="flex flex-col items-center w-20 sm:w-24 text-center"
+                >
+                  <Icon
+                    icon={icon}
+                    width={50}
+                    height={50}
+                    className="sm:w-[60px] sm:h-[60px]"
+                  />
+                  <p className="text-sm sm:text-base text-base-content/60 mt-2">
+                    {skill_name}
+                  </p>
+                </motion.div>
+              </div>
+
+              <div
+                key={index}
+                className="lg:hidden flex flex-col items-center w-20 sm:w-24 text-center"
+              >
+                <Icon
+                  icon={icon}
+                  width={50}
+                  height={50}
+                  className="sm:w-[60px] sm:h-[60px]"
+                />
+                <p className="text-sm sm:text-base text-base-content/60 mt-2">
+                  {skill_name}
+                </p>
+              </div>
+            </>
           );
         })}
       </div>
