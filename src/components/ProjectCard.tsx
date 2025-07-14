@@ -1,20 +1,6 @@
 import { X } from "lucide-react";
 import { Tools, ToolCategories } from "../tool-constants";
-
-interface Link {
-  name: string;
-  url: string;
-}
-
-interface Project {
-  project_name: string;
-  time_range: string;
-  image: string;
-  short_description: string;
-  description: string;
-  tools: string[];
-  links: Link[];
-}
+import { Project } from "../types";
 
 interface Props {
   index: number;
@@ -24,25 +10,52 @@ interface Props {
 export function ProjectCard({ index, project }: Props) {
   return (
     <div className="card bg-transparent sm:border border-base-300 p-4 text-base-content w-full sm:w-96 shrink-0 transition-all duration-300 hover:bg-base-200 hover:shadow-lg hover:cursor-default hover:-translate-y-0.5">
-      <figure>
-        <div className="aspect-[1.86] w-full">
-          <img
-            src={project.image}
-            alt={project.project_name}
-            className="p-2 w-full object-cover overflow-hidden"
-          />
-        </div>
-      </figure>
+      <div className="card-body justify-between h-full p-0">
+        {project.image_type === "mobile" ? (
+          <div className="flex flex-row-reverse">
+            <figure>
+              <div className="aspect-[9/16] w-full overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.project_name}
+                  className="p-2 w-full object-cover overflow-hidden"
+                />
+              </div>
+            </figure>
 
-      <div className="card-body">
-        <h2 className="card-title text-md sm:text-2xl">
-          {project.project_name}
-        </h2>
-        <p className="text-base sm:text-md opacity-80">
-          {project.short_description}
-        </p>
+            <div className="flex flex-col p-4 gap-2">
+              <h2 className="card-title text-md sm:text-2xl">
+                {project.project_name}
+              </h2>
+              <p className="text-base sm:text-md opacity-80">
+                {project.short_description}
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <figure>
+              <div className="aspect-[1.86] w-full overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.project_name}
+                  className="p-2 w-full object-cover overflow-hidden"
+                />
+              </div>
+            </figure>
 
-        <div className="card-actions justify-center mt-4">
+            <div className="flex flex-col p-4 gap-2">
+              <h2 className="card-title text-md sm:text-2xl">
+                {project.project_name}
+              </h2>
+              <p className="text-base sm:text-md opacity-80">
+                {project.short_description}
+              </p>
+            </div>
+          </div>
+        )}
+
+        <div className="card-actions justify-center p-3">
           <button
             className="btn btn-primary w-full"
             onClick={() =>

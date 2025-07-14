@@ -1,8 +1,11 @@
-export const ProjectInfos = [
+import { Project } from "./types";
+
+export const ProjectInfos: Project[] = [
   {
     project_name: "Petal",
     time_range: "",
     image: "/project-images/petal-homepage.jpg",
+    image_type: "desktop",
     short_description: `An application with an intuitively designed interface to help people with aphasia communicate with their caregivers.`,
     description: `Petal is an image-based communication app designed to
         support people with aphasia, inspired by my stepdad Pete, who
@@ -38,6 +41,7 @@ Built in Django with both Patient and Caregiver
     project_name: "Stock Stalker",
     time_range: "",
     image: "/project-images/stock-stalker-homepage.png",
+    image_type: "desktop",
     short_description: `A full-stack AWS-based web application that predicts stock trends for S&P 500 companies based on sentiments pulled from various sources.`,
     description: `This is a semester-long project for my Cloud Computing
         class at RIT. I'm working with three classmates to build an application
@@ -59,6 +63,7 @@ We're using a suite of AWS services to build this project. Our frontend
     project_name: "SSE Website Rebuild",
     time_range: "",
     image: "/project-images/sse-website-homepage.png",
+    image_type: "desktop",
     short_description: `Led a team of over 20 people to rebuild RIT's Society of Software Engineers website to make it more maintainable and scalable.`,
     description: `During my time as Tech Head for the Society of
         Software Engineers at RIT, I led a large team in a full rebuild
@@ -79,6 +84,27 @@ The rebuild also introduces a robust backend to manage memberships, mentor
       {
         name: "GitHub Repo",
         url: "https://github.com/rit-sse/WebsiteTheSSEquel",
+      },
+    ],
+  },
+  {
+    project_name: "Workout Tracker",
+    time_range: "",
+    image: "/project-images/workout-app.png",
+    image_type: "desktop", // Change to mobile once I finalize the design
+    short_description: `Developed a workout tracker as a personal project using React Native, Nativewind, and SQL Lite. Emphasis on clean, aesthetic UI for mobile platform`,
+    description: `This is a personal project I built to track my workouts. I was inspired by the Aflete app, which
+    had a UI I really resonated with and found intuitive as a user, but was only available to download
+    workout guides, not make them yourself. I also would have liked more customization options for the
+    general appearance of the app.
+    
+    I wanted to learn more about mobile development, so I built this app in React Native with Nativewind for styling and
+    SQL Lite for local data storage.`,
+    tools: ["REACT_NATIVE", "POSTGRESQL", "TYPESCRIPT", "NATIVEWIND"],
+    links: [
+      {
+        name: "GitHub Repo",
+        url: "https://github.com/saltyypanda/workout-tracker",
       },
     ],
   },
