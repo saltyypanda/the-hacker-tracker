@@ -15,7 +15,7 @@ import nextIcon from "@iconify-icons/logos/nextjs-icon";
 import nodejsIcon from "@iconify-icons/logos/nodejs-icon";
 import angularIcon from "@iconify-icons/logos/angular-icon";
 
-import expressIcon from "@iconify-icons/logos/express";
+import expressIcon from "./assets/logos/express.png";
 import postgresqlIcon from "@iconify-icons/logos/postgresql";
 import prismaIcon from "@iconify-icons/logos/prisma";
 import djangoIcon from "@iconify-icons/logos/django-icon";
@@ -27,7 +27,10 @@ import s3Icon from "@iconify-icons/logos/aws-S3";
 import dynamodbIcon from "@iconify-icons/logos/aws-DynamoDB";
 import terraformIcon from "@iconify-icons/logos/terraform-icon";
 
-export const Languages = [
+import chatGptIcon from "./assets/logos/chatgpt.webp";
+import { Skill } from "./types";
+
+export const Languages: Skill[] = [
   { skill_name: "Python", icon: pythonIcon },
   { skill_name: "Java", icon: javaIcon },
   { skill_name: "HTML5", icon: html5Icon },
@@ -36,11 +39,13 @@ export const Languages = [
   { skill_name: "TypeScript", icon: tsIcon },
   { skill_name: "C", icon: cIcon },
   { skill_name: "C++", icon: cppIcon },
+  { skill_name: "Prompt Engineering", image: chatGptIcon },
 ];
 
-export const FrontendSkills = [
+export const FrontendSkills: Skill[] = [
   { skill_name: "Tailwind CSS", icon: tailwindIcon },
   { skill_name: "React", icon: reactIcon },
+  { skill_name: "React Native", icon: reactIcon },
   { skill_name: "Redux", icon: reduxIcon },
   { skill_name: "Next.js", icon: nextIcon },
   // { skill_name: "Framer Motion", icon: framerIcon },
@@ -48,15 +53,15 @@ export const FrontendSkills = [
   { skill_name: "Angular", icon: angularIcon },
 ];
 
-export const BackendSkills = [
-  { skill_name: "Express.js", icon: expressIcon },
+export const BackendSkills: Skill[] = [
+  { skill_name: "Express.js", image: expressIcon },
   { skill_name: "PostgreSQL", icon: postgresqlIcon },
   { skill_name: "Prisma", icon: prismaIcon },
   { skill_name: "Django", icon: djangoIcon },
   { skill_name: "Spring Boot", icon: springIcon },
 ];
 
-export const CloudSkills = [
+export const CloudSkills: Skill[] = [
   { skill_name: "AWS Lambda", icon: lambdaIcon },
   { skill_name: "Amazon S3", icon: s3Icon },
   { skill_name: "DynamoDB", icon: dynamodbIcon },

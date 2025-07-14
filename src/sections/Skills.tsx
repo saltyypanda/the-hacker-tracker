@@ -40,7 +40,7 @@ export function Skills() {
       </div>
 
       <div className="flex flex-wrap justify-center gap-8 sm:gap-10 md:gap-12 mt-10 w-full max-w-6xl">
-        {allSkills.map(({ skill_name, icon }, index) => {
+        {allSkills.map(({ skill_name, icon, image }, index) => {
           const { ref, inView } = useInView({ triggerOnce: true });
 
           return (
@@ -60,12 +60,22 @@ export function Skills() {
                   }}
                   className="flex flex-col items-center w-20 sm:w-24 text-center"
                 >
-                  <Icon
-                    icon={icon}
-                    width={50}
-                    height={50}
-                    className="sm:w-[60px] sm:h-[60px]"
-                  />
+                  {icon ? (
+                    <Icon
+                      icon={icon}
+                      width={50}
+                      height={50}
+                      className="sm:w-[60px] sm:h-[60px]"
+                    />
+                  ) : (
+                    <img
+                      src={image}
+                      alt={skill_name}
+                      width={50}
+                      height={50}
+                      className="sm:w-[60px] sm:h-[60px]"
+                    />
+                  )}
                   <p className="text-sm sm:text-base text-base-content/60 mt-2">
                     {skill_name}
                   </p>
@@ -76,12 +86,22 @@ export function Skills() {
                 key={index}
                 className="lg:hidden flex flex-col items-center w-20 sm:w-24 text-center"
               >
-                <Icon
-                  icon={icon}
-                  width={50}
-                  height={50}
-                  className="sm:w-[60px] sm:h-[60px]"
-                />
+                {icon ? (
+                  <Icon
+                    icon={icon}
+                    width={50}
+                    height={50}
+                    className="sm:w-[60px] sm:h-[60px]"
+                  />
+                ) : (
+                  <img
+                    src={image}
+                    alt={skill_name}
+                    width={50}
+                    height={50}
+                    className="sm:w-[60px] sm:h-[60px]"
+                  />
+                )}
                 <p className="text-sm sm:text-base text-base-content/60 mt-2">
                   {skill_name}
                 </p>

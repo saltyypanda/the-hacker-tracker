@@ -1,7 +1,4 @@
-interface ToolCategory {
-  name: string;
-  colorHex: string;
-}
+import { ToolCategory } from "./types";
 
 export const ToolCategories: { [key: string]: ToolCategory } = {
   LANGUAGE: {
@@ -68,6 +65,10 @@ export const Tools: { [key: string]: Tool } = {
     name: "Tailwind",
     category: "LIBRARY",
   },
+  NATIVEWIND: {
+    name: "Nativewind",
+    category: "LIBRARY",
+  },
   TYPESCRIPT: {
     name: "TypeScript",
     category: "LANGUAGE",
@@ -76,12 +77,20 @@ export const Tools: { [key: string]: Tool } = {
     name: "React",
     category: "FRONTEND",
   },
+  REACT_NATIVE: {
+    name: "React Native",
+    category: "FRONTEND",
+  },
   NEXT_JS: {
     name: "Next.js",
     category: "FRONTEND",
   },
   POSTGRESQL: {
     name: "PostgreSQL",
+    category: "DATABASE",
+  },
+  SQL_LITE: {
+    name: "SQL Lite",
     category: "DATABASE",
   },
   PRISMA: {
