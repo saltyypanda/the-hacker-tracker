@@ -1,22 +1,28 @@
-import "./App.css";
-import Layout from "./components/Layout";
-import { Skills } from "./sections/Skills";
+import { MotionConfig } from "motion/react";
+import { Background } from "./components/Background";
+import { NavBar } from "./components/Navbar";
 import Banner from "./sections/Banner";
 import { Projects } from "./sections/Projects";
-import { Footer } from "./sections/Footer";
 import { Experience } from "./sections/Experience";
+import { Skills } from "./sections/Skills";
+import { Contact } from "./sections/Contact";
+import { Footer } from "./sections/Footer";
 
 function App() {
   return (
-    <>
-      <Layout>
+    // "user" turns off transform animations for people who prefer reduced motion.
+    <MotionConfig reducedMotion="user">
+      <Background />
+      <NavBar />
+      <main>
         <Banner />
-        <Skills />
         <Projects />
         <Experience />
-      </Layout>
+        <Skills />
+        <Contact />
+      </main>
       <Footer />
-    </>
+    </MotionConfig>
   );
 }
 

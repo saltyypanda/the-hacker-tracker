@@ -2,7 +2,9 @@ import { Project } from "./types";
 
 export const ProjectInfos: Project[] = [
   {
+    slug: "petal",
     project_name: "Petal",
+    accent: "#8ab4ff",
     time_range: "",
     image: "/project-images/petal-homepage.jpg",
     image_type: "desktop",
@@ -38,7 +40,9 @@ Built in Django with both Patient and Caregiver
     ],
   },
   {
+    slug: "stock-stalker",
     project_name: "Stock Stalker",
+    accent: "#b7ffc9",
     time_range: "",
     image: "/project-images/stock-stalker-homepage.png",
     image_type: "desktop",
@@ -60,7 +64,9 @@ We're using a suite of AWS services to build this project. Our frontend
     links: [],
   },
   {
+    slug: "sse-website",
     project_name: "SSE Website Rebuild",
+    accent: "#ffc77a",
     time_range: "",
     image: "/project-images/sse-website-homepage.png",
     image_type: "desktop",
@@ -88,7 +94,9 @@ The rebuild also introduces a robust backend to manage memberships, mentor
     ],
   },
   {
+    slug: "workout-tracker",
     project_name: "Workout Tracker",
+    accent: "#ff8fb8",
     time_range: "",
     image: "/project-images/workout-app.png",
     image_type: "desktop", // Change to mobile once I finalize the design

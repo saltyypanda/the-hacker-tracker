@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
-import { motion, useReducedMotion } from "motion/react";
-import { useMediaQuery } from "../hooks/useMediaQuery";
+import { motion } from "motion/react";
+import { SectionHeader } from "../components/SectionHeader";
 import {
   Languages,
   FrontendSkills,
@@ -9,90 +9,70 @@ import {
 } from "../skill-constants";
 import { Skill } from "../types";
 
-const allSkills = [
-  ...Languages,
-  ...FrontendSkills,
-  ...BackendSkills,
-  ...CloudSkills,
+const groups: { code: string; name: string; skills: Skill[] }[] = [
+  { code: "SYS-A", name: "Languages", skills: Languages },
+  { code: "SYS-B", name: "Frontend", skills: FrontendSkills },
+  { code: "SYS-C", name: "Backend & data", skills: BackendSkills },
+  { code: "SYS-D", name: "Cloud & infra", skills: CloudSkills },
 ];
 
-const ANIMATION_DELAY = 0.05;
-const INITIAL_DELAY = 0.5;
+const total = groups.reduce((n, g) => n + g.skills.length, 0);
 
-function SkillTile({
-  skill,
-  index,
-  animate,
-}: {
-  skill: Skill;
-  index: number;
-  animate: boolean;
-}) {
-  const { skill_name, icon, image } = skill;
-
-  return (
-    <motion.div
-      // Only fade tiles in on large screens, and never for reduced-motion users.
-      initial={animate ? { opacity: 0, y: 10 } : false}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        delay: index * ANIMATION_DELAY + INITIAL_DELAY,
-        duration: 0.4,
-        ease: "easeIn",
-      }}
-      className="flex flex-col items-center w-20 sm:w-24 text-center"
-    >
-      {icon ? (
-        <Icon
-          icon={icon}
-          width={50}
-          height={50}
-          className="sm:w-[60px] sm:h-[60px]"
-        />
-      ) : (
-        <img
-          src={image}
-          alt=""
-          width={50}
-          height={50}
-          className="sm:w-[60px] sm:h-[60px]"
-        />
-      )}
-      <p className="text-sm sm:text-base text-base-content/60 mt-2">
-        {skill_name}
-      </p>
-    </motion.div>
-  );
-}
+/** Logos that are near-black and disappear on the dark panels; shown in white instead. */
+const DARK_LOGOS = new Set(["Prisma", "Express.js", "Next.js"]);
 
 export function Skills() {
-  const isLarge = useMediaQuery("(min-width: 1024px)");
-  const reduceMotion = useReducedMotion();
-  const animate = isLarge && !reduceMotion;
-
   return (
-    <section
-      id="skills"
-      className="flex flex-col items-center w-full px-4 sm:px-6 md:px-10 py-12 sm:py-16"
-    >
-      <div className="w-full max-w-5xl flex flex-col items-center text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-base-content mb-6">
-          Skills
-        </h2>
-        <p className="text-base sm:text-lg text-base-content/60 max-w-xl">
-          Here's some cool useful stuff I learned over the past few years.
-        </p>
-      </div>
+    <section id="skills" className="mx-auto max-w-6xl px-5 py-28 sm:px-8">
+      <SectionHeader
+        index="03"
+        eyebrow="Onboard systems"
+        title="Skills"
+        subtitle="Languages, frameworks and tools I've worked with."
+        meta={`${total} modules`}
+      />
 
-      <div className="flex flex-wrap justify-center gap-8 sm:gap-10 md:gap-12 mt-10 w-full max-w-6xl">
-        {allSkills.map((skill, index) => (
-          <SkillTile
-            key={skill.skill_name}
-            skill={skill}
-            index={index}
-            animate={animate}
-          />
+      <div className="grid gap-5 md:grid-cols-2">
+        {groups.map((group, i) => (
+          <motion.div
+            key={group.name}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.55, delay: (i % 2) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="hud p-7"
+          >
+            <div className="mb-6 flex items-baseline justify-between gap-4">
+              <h3 className="text-xl font-semibold">{group.name}</h3>
+              <span className="label-mono text-base-content/35">
+                {group.code} · {String(group.skills.length).padStart(2, "0")}
+              </span>
+            </div>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3">
+              {group.skills.map((skill) => (
+                <li key={skill.skill_name} className="flex items-center gap-2.5 text-[0.95rem] leading-tight text-base-content/80">
+                  {skill.icon ? (
+                    <Icon
+                      icon={skill.icon}
+                      width={18}
+                      height={18}
+                      className={`shrink-0 ${DARK_LOGOS.has(skill.skill_name) ? "brightness-0 invert" : ""}`}
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <img
+                      src={skill.image}
+                      alt=""
+                      width={18}
+                      height={18}
+                      className={`h-[18px] w-[18px] shrink-0 object-contain ${DARK_LOGOS.has(skill.skill_name) ? "brightness-0 invert" : ""}`}
+                    />
+                  )}
+                  <span>{skill.skill_name}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         ))}
       </div>
     </section>

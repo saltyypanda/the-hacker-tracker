@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useReducedMotion } from "motion/react";
-import "animate.css";
 
 const textIntros = [
   "Welcome! My name is",
@@ -58,14 +57,19 @@ const TypingIntros = () => {
   const shown = reduceMotion ? textIntros[0] : text;
 
   return (
-    <div id="typing-intros" className="w-full flex flex-col gap-2">
-      <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl whitespace-nowrap overflow-hidden shrink text-accent animate__animated animate__fadeIn animate__delay-1s">
-        {shown || " "}
-        <span className="animate-pulse" aria-hidden="true">
-          |
+    <p className="font-mono text-base text-primary sm:text-lg">
+      <span className="text-base-content/40" aria-hidden="true">
+        &gt;{" "}
+      </span>
+      {/* Screen readers get one stable line instead of every keystroke. */}
+      <span className="sr-only">{textIntros[0]}</span>
+      <span aria-hidden="true">
+        {shown || "\u00a0"}
+        <span className="ml-0.5 inline-block w-[0.6ch] animate-pulse bg-primary/80">
+          &nbsp;
         </span>
-      </p>
-    </div>
+      </span>
+    </p>
   );
 };
 

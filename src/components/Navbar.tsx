@@ -1,122 +1,138 @@
 import { useState, useEffect } from "react";
-import panda from "../assets/panda-final-logo.png";
-import { ContactMeModal } from "./ContactMeModal";
-import { X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { PandaHelmet } from "./PandaHelmet";
 import { navSections, socialLinks } from "../site-config";
+
+/** Tracks which section is currently in the middle of the screen. */
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState<string | null>(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [ids]);
+  return active;
+}
+
+const sectionIds = navSections.map((s) => s.id);
 
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const active = useActiveSection(sectionIds);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 24);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
+  const solid = scrolled || menuOpen;
+
   return (
-    <div className="drawer drawer-end">
-      <input
-        id="nav-drawer"
-        type="checkbox"
-        className="drawer-toggle"
-        checked={drawerOpen}
-        onChange={(e) => setDrawerOpen(e.target.checked)}
-      />
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        solid
+          ? "border-b border-base-content/10 bg-base-100/70 backdrop-blur-md"
+          : "border-b border-transparent"
+      }`}
+    >
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
+        <a href="#home" className="group flex items-center gap-2.5" aria-label="Hacker Tracker, back to top">
+          <PandaHelmet className="h-8 w-8 transition-transform duration-500 group-hover:rotate-[-12deg]" />
+          <span className="label-mono text-[0.8rem] text-base-content/90">
+            hacker<span className="text-primary">/</span>tracker
+          </span>
+        </a>
 
-      <nav
-        className={`drawer-content fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "bg-base-100 shadow-lg py-2" : "bg-transparent py-4"
-        }`}
-      >
-        <div className="flex justify-between items-center px-4 sm:px-6 md:px-12 lg:px-20">
-          <a href="#home" aria-label="Home">
-            <img src={panda} alt="" width={100} height={100} className="ml-2" />
-          </a>
-
-          <ul className="hidden md:flex space-x-6 lg:space-x-8 text-white text-lg">
-            {navSections.map((section) => (
-              <li key={section}>
+        <ul className="hidden items-center gap-1 md:flex">
+          {navSections.map(({ id, label }, i) => {
+            const isActive = active === id;
+            return (
+              <li key={id}>
                 <a
-                  href={`#${section}`}
-                  className="hover:text-accent transition-all capitalize"
+                  href={`#${id}`}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`label-mono relative rounded px-3 py-2 transition-colors ${
+                    isActive ? "text-base-content" : "text-base-content/55 hover:text-base-content"
+                  }`}
                 >
-                  {section}
+                  <span className={isActive ? "text-primary" : "text-base-content/35"}>0{i + 1}</span>{" "}
+                  {label}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute inset-x-3 -bottom-px h-px bg-primary transition-transform duration-300 ${
+                      isActive ? "scale-x-100" : "scale-x-0"
+                    }`}
+                  />
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div className="hidden items-center gap-1 md:flex">
+          {socialLinks.map(({ name, url, icon }) => (
+            <a
+              key={name}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={name}
+              className="grid h-9 w-9 place-items-center rounded-full opacity-60 transition hover:bg-base-content/10 hover:opacity-100"
+            >
+              <img src={icon} alt="" width={16} height={16} className="h-4 w-4" />
+            </a>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          className="btn btn-ghost btn-square md:hidden"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </nav>
+
+      {menuOpen && (
+        <div id="mobile-menu" className="border-t border-base-content/10 px-5 pb-8 pt-4 md:hidden">
+          <ul className="flex flex-col">
+            {navSections.map(({ id, label }, i) => (
+              <li key={id} className="border-b border-base-content/5">
+                <a
+                  href={`#${id}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-baseline gap-4 px-1 py-4 font-display text-2xl"
+                >
+                  <span className="label-mono text-primary/80">0{i + 1}</span>
+                  {label}
                 </a>
               </li>
             ))}
           </ul>
-
-          <div className="hidden lg:flex items-center space-x-4">
-            {socialLinks.map(({ name, url, icon, size }) => (
-              <a
-                key={name}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={name}
-                className="w-10 h-10 bg-[#353535]/50 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white hover:bg-gray-300 transition-all"
-              >
-                <img src={icon} alt="" width={size} height={size} />
-              </a>
-            ))}
-            <button
-              className="bg-white text-black font-bold px-4 py-2 rounded-lg hover:bg-gray-300 hover:cursor-pointer transition-all"
-              onClick={() => setModalOpen(true)}
-            >
-              Let's Connect
-            </button>
-          </div>
-
-          <label
-            htmlFor="nav-drawer"
-            aria-label="Open menu"
-            className="btn btn-ghost bg-transparent shadow-none lg:hidden text-white border-none"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              fill="currentColor"
-              viewBox="0 0 512 512"
-              aria-hidden="true"
-            >
-              <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
-            </svg>
-          </label>
-        </div>
-      </nav>
-
-      <div className="drawer-side z-50">
-        <label htmlFor="nav-drawer" className="drawer-overlay" aria-label="Close menu"></label>
-
-        <div className="absolute top-0 right-0 z-50 px-6 pt-4">
-          <button
-            type="button"
-            aria-label="Close menu"
-            className="btn btn-ghost btn-circle shadow-none border-none bg-transparent"
-            onClick={() => setDrawerOpen(false)}
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-
-        <ul className="menu p-8 w-full min-h-full bg-base-100 text-base-content flex flex-col justify-center items-center space-y-6">
-          {navSections.map((section) => (
-            <li key={section}>
-              <a
-                href={`#${section}`}
-                className="text-2xl font-semibold hover:text-accent transition capitalize"
-                onClick={() => setDrawerOpen(false)}
-              >
-                {section}
-              </a>
-            </li>
-          ))}
-
-          <li className="flex flex-row space-x-6 pt-4">
+          <div className="mt-6 flex gap-2">
             {socialLinks.map(({ name, url, icon }) => (
               <a
                 key={name}
@@ -124,27 +140,14 @@ export function NavBar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={name}
+                className="grid h-11 w-11 place-items-center rounded-full border border-base-content/15"
               >
-                <img src={icon} alt="" width={24} height={24} />
+                <img src={icon} alt="" width={18} height={18} className="h-[18px] w-[18px]" />
               </a>
             ))}
-          </li>
-
-          <li>
-            <button
-              className="text-md btn btn-primary mt-4"
-              onClick={() => {
-                setDrawerOpen(false);
-                setModalOpen(true);
-              }}
-            >
-              Let's Connect
-            </button>
-          </li>
-        </ul>
-      </div>
-
-      <ContactMeModal open={modalOpen} closeModal={() => setModalOpen(false)} />
-    </div>
+          </div>
+        </div>
+      )}
+    </header>
   );
 }

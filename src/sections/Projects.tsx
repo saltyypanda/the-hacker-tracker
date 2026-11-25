@@ -1,24 +1,21 @@
-import { ProjectCard } from "../components/ProjectCard";
+import { ProjectRow } from "../components/ProjectRow";
+import { SectionHeader } from "../components/SectionHeader";
 import { ProjectInfos } from "../project-constants";
 
 export function Projects() {
   return (
-    <section
-      id="projects"
-      className="flex flex-col items-center w-full px-4 sm:px-6 md:px-10 py-12 sm:py-16"
-    >
-      <div className="w-full max-w-5xl flex flex-col items-center text-center gap-6">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-base-content">
-          Projects
-        </h2>
-        <p className="text-base sm:text-lg text-base-content/60 max-w-xl">
-          Some of the academic and personal projects I've done.
-        </p>
-      </div>
+    <section id="projects" className="mx-auto max-w-6xl px-5 py-28 sm:px-8">
+      <SectionHeader
+        index="01"
+        eyebrow="Missions"
+        title="Projects"
+        subtitle="Academic and personal projects, from 24-hour hackathon prototypes to full-stack cloud apps."
+        meta={`${String(ProjectInfos.length).padStart(2, "0")} entries`}
+      />
 
-      <div className="mt-10 flex flex-wrap justify-center gap-16 lg:gap-8 w-full max-w-screen-xl">
-        {ProjectInfos.slice(0, 4).map((project) => (
-          <ProjectCard key={project.project_name} project={project} />
+      <div className="flex flex-col gap-24 lg:gap-32">
+        {ProjectInfos.map((project, index) => (
+          <ProjectRow key={project.slug} project={project} index={index} />
         ))}
       </div>
     </section>

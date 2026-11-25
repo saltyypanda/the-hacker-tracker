@@ -18,4 +18,10 @@ export const socialLinks = [
   { name: "Devpost", url: "https://devpost.com/saltyypanda", icon: devpostIcon, size: 24 },
 ];
 
-export const navSections = ["home", "skills", "projects", "experience"];
+/** In-page sections, in the order they appear. */
+export const navSections = [
+  { id: "projects", label: "Projects" },
+  { id: "experience", label: "Experience" },
+  { id: "skills", label: "Skills" },
+  { id: "contact", label: "Contact" },
+];

@@ -17,7 +17,11 @@ export interface ToolCategory {
 }
 
 export interface Project {
+  /** Used for the #anchor and the orbit planet link. */
+  slug: string;
   project_name: string;
+  /** Planet color: used in the hero orbit and on the project's row. */
+  accent: string;
   time_range: string;
   image: string;
   image_type: "mobile" | "desktop";
