@@ -23,8 +23,8 @@ import springIcon from "@iconify-icons/logos/spring-icon";
 
 import lambdaIcon from "@iconify-icons/logos/aws-lambda";
 import amplifyIcon from "@iconify-icons/logos/aws-amplify";
-import s3Icon from "@iconify-icons/logos/aws-S3";
-import dynamodbIcon from "@iconify-icons/logos/aws-DynamoDB";
+import s3Icon from "@iconify-icons/logos/aws-s3";
+import dynamodbIcon from "@iconify-icons/logos/aws-dynamodb";
 import terraformIcon from "@iconify-icons/logos/terraform-icon";
 
 import chatGptIcon from "./assets/logos/chatgpt.webp";

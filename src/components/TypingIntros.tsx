@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useReducedMotion } from "motion/react";
 import "animate.css";
 
 const textIntros = [
@@ -16,51 +17,53 @@ const textIntros = [
   "Tracing signal...Found:",
 ];
 
+const TYPE_MS = 60;
+const DELETE_MS = 30;
+const HOLD_MS = 2000; // pause once a phrase is fully typed
+const GAP_MS = 300; // pause before typing the next phrase
+
 const TypingIntros = () => {
+  const reduceMotion = useReducedMotion();
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [delta, setDelta] = useState(50 - Math.random() * 10);
   const [text, setText] = useState("");
-  const period = 2000;
-
-  const tick = () => {
-    let i = loopNum % textIntros.length;
-    let fullText = textIntros[i];
-    let updatedText = isDeleting
-      ? fullText.substring(0, text.length - 1)
-      : fullText.substring(0, text.length + 1);
-
-    setText(updatedText);
-
-    if (isDeleting) {
-      setDelta((prevDelta) => prevDelta / 2);
-    }
-
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setDelta(period);
-    } else if (isDeleting && updatedText === "") {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setDelta(200);
-    }
-  };
 
   useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
+    if (reduceMotion) return;
 
-    return () => {
-      clearInterval(ticker);
-    };
-  }, [text]);
+    const fullText = textIntros[loopNum % textIntros.length];
+    let delay = isDeleting ? DELETE_MS : TYPE_MS;
+    let next: () => void;
+
+    if (!isDeleting && text === fullText) {
+      delay = HOLD_MS;
+      next = () => setIsDeleting(true);
+    } else if (isDeleting && text === "") {
+      delay = GAP_MS;
+      next = () => {
+        setIsDeleting(false);
+        setLoopNum((n) => n + 1);
+      };
+    } else {
+      next = () =>
+        setText(
+          fullText.substring(0, text.length + (isDeleting ? -1 : 1))
+        );
+    }
+
+    const timeout = setTimeout(next, delay);
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, loopNum, reduceMotion]);
+
+  const shown = reduceMotion ? textIntros[0] : text;
 
   return (
     <div id="typing-intros" className="w-full flex flex-col gap-2">
-      <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl whitespace-nowrap overflow-hidden !font-jura shrink text-accent animate__animated animate__fadeIn animate__delay-1s">
-        {text || "\u00a0"}
-        <span className="animate-pulse">|</span>
+      <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl whitespace-nowrap overflow-hidden shrink text-accent animate__animated animate__fadeIn animate__delay-1s">
+        {shown || " "}
+        <span className="animate-pulse" aria-hidden="true">
+          |
+        </span>
       </p>
     </div>
   );

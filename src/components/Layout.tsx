@@ -4,14 +4,14 @@ import { NavBar } from "./Navbar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="w-screen font-inter">
+    <div className="w-full">
       <Background />
       <NavBar />
       <div className="flex flex-col w-full items-center">
         {Children.map(children, (child, index) => (
           <div
             key={index}
-            className="min-w-screen min-h-screen flex items-center justify-center"
+            className="w-full min-h-screen flex items-center justify-center"
           >
             {child}
           </div>

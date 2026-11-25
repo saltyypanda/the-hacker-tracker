@@ -5,7 +5,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="flex flex-col items-center w-full px-4 sm:px-6 md:px-10 py-12 sm:py-16 text-black"
+      className="flex flex-col items-center w-full px-4 sm:px-6 md:px-10 py-12 sm:py-16"
     >
       <div className="w-full max-w-5xl flex flex-col items-center text-center gap-6">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-base-content">
@@ -17,12 +17,8 @@ export function Projects() {
       </div>
 
       <div className="mt-10 flex flex-wrap justify-center gap-16 lg:gap-8 w-full max-w-screen-xl">
-        {ProjectInfos.slice(0, 4).map((project, index) => (
-          <ProjectCard
-            key={`project-card-${index}`}
-            index={index}
-            project={project}
-          />
+        {ProjectInfos.slice(0, 4).map((project) => (
+          <ProjectCard key={project.project_name} project={project} />
         ))}
       </div>
     </section>

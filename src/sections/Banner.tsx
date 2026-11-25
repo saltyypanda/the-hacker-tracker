@@ -1,6 +1,6 @@
 import headerImage from "../assets/header-img.svg";
 import TypingIntros from "../components/TypingIntros";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function Banner() {
   return (
