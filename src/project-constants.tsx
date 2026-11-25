@@ -6,7 +6,8 @@ export const ProjectInfos: Project[] = [
     project_name: "Petal",
     accent: "#8ab4ff",
     time_range: "",
-    image: "/project-images/petal-homepage.jpg",
+    image: "/project-media/petal-poster.webp",
+    video: "/project-media/petal",
     image_type: "desktop",
     short_description: `An application with an intuitively designed interface to help people with aphasia communicate with their caregivers.`,
     description: `Petal is an image-based communication app designed to
@@ -98,21 +99,51 @@ The rebuild also introduces a robust backend to manage memberships, mentor
     project_name: "Workout Tracker",
     accent: "#ff8fb8",
     time_range: "",
-    image: "/project-images/workout-app.png",
+    image: "/project-media/workout-poster.webp",
+    video: "/project-media/workout",
     image_type: "desktop", // Change to mobile once I finalize the design
-    short_description: `Developed a workout tracker as a personal project using React Native, Nativewind, and SQL Lite. Emphasis on clean, aesthetic UI for mobile platform`,
+    short_description: `Developed a workout tracker as a personal project using React Native, Nativewind, and SQLite. Emphasis on clean, aesthetic UI for mobile platform`,
     description: `This is a personal project I built to track my workouts. I was inspired by the Aflete app, which
     had a UI I really resonated with and found intuitive as a user, but was only available to download
     workout guides, not make them yourself. I also would have liked more customization options for the
     general appearance of the app.
     
     I wanted to learn more about mobile development, so I built this app in React Native with Nativewind for styling and
-    SQL Lite for local data storage.`,
-    tools: ["REACT_NATIVE", "POSTGRESQL", "TYPESCRIPT", "NATIVEWIND"],
+    SQLite for local data storage.`,
+    tools: ["REACT_NATIVE", "SQL_LITE", "TYPESCRIPT", "NATIVEWIND"],
     links: [
       {
         name: "GitHub Repo",
         url: "https://github.com/saltyypanda/workout-tracker",
+      },
+    ],
+  },
+  {
+    slug: "outer-wilds-chat",
+    project_name: "Outer Wilds Chat",
+    accent: "#b49cff",
+    time_range: "April 2026",
+    image: "/project-media/outer-wilds-chat-poster.webp",
+    video: "/project-media/outer-wilds-chat",
+    image_type: "desktop",
+    short_description: `A transparent desktop overlay for chatting with Outer Wilds characters over the "signalscope," powered by character-driven LLM prompts.`,
+    description: `A fan project built over a few days in April 2026: a small, frameless, transparent Electron overlay that sits on the desktop and lets you tune into planets from Outer Wilds to chat with the travelers camped there, like Chert on Ember Twin and Gabbro on Giant's Deep.
+
+Each character has a detailed system prompt covering their voice, worldview and relationships, so replies read like in-game dialogue rather than a chatbot. Chert, for example, has no idea what "code" is and asks about it. Conversations go through the OpenAI Responses API with timestamped history, and the UI adds signal-locating states, typed-out replies and per-planet sound design.
+
+Outer Wilds and its characters belong to Mobius Digital; this is an unofficial fan project.`,
+    tools: ["JAVASCRIPT", "ELECTRON", "OPENAI", "TAILWIND"],
+    gallery: [
+      {
+        src: "/project-media/outer-wilds-chat-desktop.webp",
+        alt: "Linux desktop with an Outer Wilds wallpaper of a campfire under the stars, system widgets on the left, and the chat overlay floating in the top right",
+        caption: "In its natural habitat: the overlay on my Outer Wilds-themed desktop",
+      },
+    ],
+    links: [
+      {
+        name: "GitHub Repo",
+        url: "https://github.com/saltyypanda/outer-wilds-chat",
       },
     ],
   },

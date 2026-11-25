@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight, X } from "lucide-react";
 import { Tools } from "../tool-constants";
 import { Project } from "../types";
+import { ProjectMedia } from "./ProjectMedia";
 
 interface Props {
   project: Project;
@@ -81,13 +82,17 @@ export function ProjectRow({ project, index }: Props) {
           style={{ background: `radial-gradient(closest-side, ${project.accent}55, transparent)` }}
         />
         <div className="hud p-2" style={accentStyle}>
-          <div className="aspect-[16/10] overflow-hidden">
-            <img
-              src={project.image}
-              alt=""
-              loading="lazy"
+          <div className="relative aspect-[16/10] overflow-hidden">
+            <ProjectMedia
+              project={project}
               className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
             />
+            {project.video && (
+              <span className="label-mono pointer-events-none absolute bottom-3 right-3 flex items-center gap-1.5 rounded bg-base-100/75 px-2 py-1 text-[0.65rem] text-base-content/80 backdrop-blur">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-error" aria-hidden="true" />
+                Demo
+              </span>
+            )}
           </div>
         </div>
       </button>
@@ -133,11 +138,10 @@ export function ProjectRow({ project, index }: Props) {
             </button>
           </form>
 
-          <img
-            src={project.image}
-            alt={`${project.project_name} screenshot`}
-            loading="lazy"
-            className="aspect-[16/9] w-full border-b border-base-content/10 object-cover object-top"
+          <ProjectMedia
+            project={project}
+            controls
+            className="aspect-[16/10] w-full border-b border-base-content/10 bg-base-100 object-cover object-top"
           />
 
           <div className="flex flex-col gap-6 p-6 sm:p-10">
@@ -155,6 +159,25 @@ export function ProjectRow({ project, index }: Props) {
                 <p key={i}>{p}</p>
               ))}
             </div>
+
+            {project.gallery?.map((image) => (
+              <figure key={image.src} className="flex flex-col gap-2">
+                <a
+                  href={image.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block overflow-hidden border border-base-content/10 transition-colors hover:border-primary/50"
+                  aria-label={`${image.alt} (opens full size)`}
+                >
+                  <img src={image.src} alt={image.alt} loading="lazy" className="w-full" />
+                </a>
+                {image.caption && (
+                  <figcaption className="label-mono text-[0.7rem] leading-relaxed text-base-content/50">
+                    {image.caption}
+                  </figcaption>
+                )}
+              </figure>
+            ))}
 
             <div className="flex flex-col gap-3 border-t border-base-content/10 pt-6">
               <p className="label-mono text-base-content/45">Tools</p>

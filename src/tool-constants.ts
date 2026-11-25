@@ -90,7 +90,7 @@ export const Tools: { [key: string]: Tool } = {
     category: "DATABASE",
   },
   SQL_LITE: {
-    name: "SQL Lite",
+    name: "SQLite",
     category: "DATABASE",
   },
   PRISMA: {
@@ -100,6 +100,18 @@ export const Tools: { [key: string]: Tool } = {
   VITE: {
     name: "Vite",
     category: "FRONTEND",
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    category: "LANGUAGE",
+  },
+  ELECTRON: {
+    name: "Electron",
+    category: "FRONTEND",
+  },
+  OPENAI: {
+    name: "OpenAI API",
+    category: "CLOUD",
   },
   AWS: {
     name: "AWS Services",
