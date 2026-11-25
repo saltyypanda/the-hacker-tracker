@@ -1,8 +1,8 @@
 import { CSSProperties, useRef } from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight, Play, X } from "lucide-react";
 import { Tools } from "../tool-constants";
-import { Project } from "../types";
+import { Project, StoryVideo } from "../types";
 import { ProjectMedia } from "./ProjectMedia";
 
 interface Props {
@@ -52,8 +52,50 @@ function ProjectLinks({ project }: { project: Project }) {
   );
 }
 
+/** A narrated video with full controls. Loads nothing until someone presses play. */
+function Story({ story, videoRef, labelId }: { story: StoryVideo; videoRef: React.RefObject<HTMLVideoElement | null>; labelId: string }) {
+  return (
+    <section aria-labelledby={labelId} className="flex flex-col gap-3">
+      <p id={labelId} className="label-mono flex flex-wrap items-center gap-x-2 text-base-content/60">
+        <Play className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+        {story.title}
+        <span className="text-base-content/35">· {story.duration} · with narration</span>
+      </p>
+      <video
+        ref={videoRef}
+        controls
+        preload="none"
+        playsInline
+        poster={story.poster}
+        aria-labelledby={labelId}
+        className="aspect-video w-full border border-base-content/10 bg-base-100"
+      >
+        <source src={`${story.src}.webm`} type="video/webm" />
+        <source src={`${story.src}.mp4`} type="video/mp4" />
+      </video>
+      {story.caption && (
+        <p className="label-mono text-[0.7rem] leading-relaxed text-base-content/50">{story.caption}</p>
+      )}
+    </section>
+  );
+}
+
 export function ProjectRow({ project, index }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const storyRef = useRef<HTMLVideoElement>(null);
+
+  const openStory = () => {
+    dialogRef.current?.showModal();
+    // Bring the narrated video into view and give it keyboard focus.
+    requestAnimationFrame(() => {
+      storyRef.current?.scrollIntoView({ block: "center" });
+      storyRef.current?.focus();
+    });
+  };
+
+  // Closing the dialog must stop any narration rather than leave it playing.
+  const pauseDialogMedia = () =>
+    dialogRef.current?.querySelectorAll("video").forEach((v) => v.pause());
   const missionNo = String(index + 1).padStart(2, "0");
   const titleId = `project-${project.slug}-title`;
   const flipped = index % 2 === 1;
@@ -123,11 +165,21 @@ export function ProjectRow({ project, index }: Props) {
           >
             Read mission log
           </button>
+          {project.story && (
+            <button
+              type="button"
+              onClick={openStory}
+              className="btn btn-sm h-10 gap-2 border-base-content/20 bg-transparent px-4 hover:border-primary hover:bg-transparent hover:text-primary"
+            >
+              <Play className="h-3.5 w-3.5" aria-hidden="true" />
+              {project.story.title}
+            </button>
+          )}
           <ProjectLinks project={project} />
         </div>
       </div>
 
-      <dialog ref={dialogRef} className="modal" aria-labelledby={`${titleId}-dialog`}>
+      <dialog ref={dialogRef} className="modal" aria-labelledby={`${titleId}-dialog`} onClose={pauseDialogMedia}>
         <div className="hud modal-box max-h-[88vh] w-[94vw] max-w-3xl rounded-none bg-base-200 p-0" style={{ ...accentStyle, "--hud-bg": "var(--color-base-200)" } as CSSProperties}>
           <form method="dialog">
             <button
@@ -153,6 +205,10 @@ export function ProjectRow({ project, index }: Props) {
                 {project.project_name}
               </h3>
             </div>
+
+            {project.story && (
+              <Story story={project.story} videoRef={storyRef} labelId={`${titleId}-story`} />
+            )}
 
             <div className="flex flex-col gap-4 text-lg leading-relaxed text-base-content/80">
               {paragraphs(project.description).map((p, i) => (

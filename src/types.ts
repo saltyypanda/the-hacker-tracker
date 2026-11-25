@@ -23,6 +23,17 @@ export interface GalleryImage {
   caption?: string;
 }
 
+/** A longer narrated video shown with full controls (never looped or autoplayed). */
+export interface StoryVideo {
+  /** Path without extension; `<src>.webm` and `<src>.mp4` must both exist. */
+  src: string;
+  poster: string;
+  title: string;
+  /** Shown next to the title, e.g. "0:54". */
+  duration: string;
+  caption?: string;
+}
+
 export interface Project {
   /** Used for the #anchor and the orbit planet link. */
   slug: string;
@@ -39,6 +50,8 @@ export interface Project {
    * browser has a format it can play.
    */
   video?: string;
+  /** A narrated video, featured at the top of the mission-log dialog. */
+  story?: StoryVideo;
   /** Extra images shown in the mission-log dialog. */
   gallery?: GalleryImage[];
   short_description: string;

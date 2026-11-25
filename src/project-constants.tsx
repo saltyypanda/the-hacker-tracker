@@ -2,6 +2,67 @@ import { Project } from "./types";
 
 export const ProjectInfos: Project[] = [
   {
+    slug: "dawn",
+    project_name: "D.A.W.N.",
+    accent: "#f3ba50",
+    time_range: "2026 – 2027",
+    image: "/project-media/dawn-poster.webp",
+    video: "/project-media/dawn",
+    image_type: "desktop",
+    short_description: `A calm, hands-free tablet that helps people with dementia know what day it is and hear from their family, with apps for families and care staff. My senior project; I lead the tablet app and DevOps.`,
+    description: `People with dementia often wake up not knowing where they are, what day it is, or why. D.A.W.N. (Daily Awareness & Well-being Navigator) puts a tablet in a care-facility resident's room that always shows the day and time of day in very large type, with family photos and notes, and plays video and audio messages from family. The resident never has to touch it.
+
+It's three apps on one Go backend: a caregiver web app where families upload media, lay out the screen with a live preview and schedule messages; the Android tablet app; and a staff app that lets floor staff play a clip by situation ("asking for someone", "wants to go home") and rate how it went. We're a team of six preparing a beta at St. Ann's Home in Rochester.
+
+I lead the carepartner tablet app and DevOps. I rebuilt the tablet app in Expo/React Native: the always-on widget grid, night dimming, a single playback state machine that drives the screen, staff play and stop commands over a WebSocket, telemetry that reports every play and touch, automatic pairing, and EAS builds with over-the-air updates. On the DevOps side I set up CI on every pull request, Discord review bots and nightly PR metrics, kept secrets out of the deployment config, and licensed the project under Apache 2.0.
+
+The demo runs the real apps locally with sample content (a placeholder message and photo), not real residents or families.`,
+    story: {
+      src: "/project-media/dawn-why-it-matters",
+      poster: "/project-media/dawn-why-it-matters-poster.webp",
+      title: "Why it matters",
+      duration: "0:54",
+      caption: "Our team's official video. All app footage and the video message were recorded by the D.A.W.N. team.",
+    },
+    tools: ["REACT_NATIVE", "EXPO", "TYPESCRIPT", "GO", "POSTGRESQL", "DOCKER", "GITHUB_ACTIONS"],
+    links: [
+      {
+        name: "GitHub Repo",
+        url: "https://github.com/dawn-care/DAWN",
+      },
+      {
+        name: "Project Docs",
+        url: "https://github.com/dawn-care/Artifacts",
+      },
+      {
+        name: "Team Website",
+        url: "https://dawn-sigma-gold.vercel.app",
+      },
+    ],
+    gallery: [
+      {
+        src: "/project-media/dawn-always-on.webp",
+        alt: "Tablet screen reading Wednesday, Afternoon in large type, with a photo of a house captioned Our house and a note saying Elena is coming for dinner tonight",
+        caption: "The always-on screen: the day and time of day in very large type, a family photo and a note",
+      },
+      {
+        src: "/project-media/dawn-night.webp",
+        alt: "Dark tablet screen with warm text: Wednesday, Nighttime, You're safe. Sleep well.",
+        caption: "During sleeping hours the screen dims to warm text",
+      },
+      {
+        src: "/project-media/dawn-staff-app.webp",
+        alt: "Three staff app screens: choosing what's happening, choosing who the resident is asking for, and rating how the clip went",
+        caption: "The staff app: pick the situation, pick who they're asking for, play, then rate how it went",
+      },
+      {
+        src: "/project-media/dawn-pairing.webp",
+        alt: "Tablet setup screen showing a six-character pairing code to enter in the family app",
+        caption: "Pairing: the tablet shows a code and the family enters it in their app, with no login on the tablet",
+      },
+    ],
+  },
+  {
     slug: "petal",
     project_name: "Petal",
     accent: "#8ab4ff",

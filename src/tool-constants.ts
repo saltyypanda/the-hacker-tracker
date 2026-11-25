@@ -113,6 +113,22 @@ export const Tools: { [key: string]: Tool } = {
     name: "OpenAI API",
     category: "CLOUD",
   },
+  GO: {
+    name: "Go",
+    category: "LANGUAGE",
+  },
+  EXPO: {
+    name: "Expo",
+    category: "FRONTEND",
+  },
+  DOCKER: {
+    name: "Docker",
+    category: "TOOLING",
+  },
+  GITHUB_ACTIONS: {
+    name: "GitHub Actions",
+    category: "TOOLING",
+  },
   AWS: {
     name: "AWS Services",
     category: "CLOUD",
