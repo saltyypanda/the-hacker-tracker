@@ -33,11 +33,9 @@ export default function Banner() {
 
         <motion.h1
           {...fadeUp(0.15)}
-          className="text-[clamp(3.25rem,9vw,5.75rem)] font-bold leading-[0.9]"
+          className="whitespace-nowrap text-[clamp(2.6rem,9vw,5.25rem)] font-bold lg:text-[clamp(3rem,6.5vw,5.25rem)] leading-[0.9]"
         >
-          Tess
-          <br />
-          Hacker<span className="text-primary">.</span>
+          Tess Hacker<span className="text-primary">.</span>
         </motion.h1>
 
         <motion.p {...fadeUp(0.25)} className="label-mono flex flex-wrap items-center gap-x-3 gap-y-1 text-base-content/60">
